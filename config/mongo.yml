@@ -12,7 +12,8 @@ test:
 
 # set these environment variables on your prod server
 production:
-  <<: *defaults
-  database: avalytics
-  username: <%= ENV['MONGO_USERNAME'] %>
-  password: <%= ENV['MONGO_PASSWORD'] %>
+  host: $OPENSHIFT_MONGODB_DB_HOST
+  port: $OPENSHIFT_MONGODB_DB_PORT
+  database: Avalytics
+  username: admin
+  password: i49cSCJrLgny
