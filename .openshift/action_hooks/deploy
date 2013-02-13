@@ -6,5 +6,6 @@
 
 # Run db:migrate
 #pushd ${OPENSHIFT_REPO_DIR} > /dev/null
-bundle exec rake db:migrate RAILS_ENV="production"
+cd ${OPENSHIFT_REPO_DIR}
+bundle exec rake db:migrate RAILS_ENV="production" RAILS_GROUPS="assets"
 #popd > /dev/null
