@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Job title:
+  = @job_list.job_title
+%p
+  %b Url:
+  = @job_list.url
+
+= link_to 'Edit', edit_job_list_path(@job_list)
+\|
+= link_to 'Back', job_lists_path

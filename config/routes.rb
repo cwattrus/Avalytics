@@ -1,4 +1,7 @@
 Avalytics::Application.routes.draw do
+  resources :job_lists
+
+
   resources :people
 
 
