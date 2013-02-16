@@ -28,11 +28,10 @@ class JobList
     doc = Nokogiri::HTML(open(self.url))
     rows = doc.search("table tr")
     if rows.first.search("th").map(&:content) == EXPECTED_COLMNS then
-      people = []
+      people = {}
       rows[1..-1].each do |row|
         persons_values = row.search("td")
-        people << Person.new(
-          :avature_id => persons_values[0].content,
+        people[persons_values[0].content]  = {
           :first_name => clear_nbsp(persons_values[1].content).strip,
           :last_name => clear_nbsp(persons_values[2].content).strip,
           :creation_date => persons_values[3].content,
@@ -47,7 +46,7 @@ class JobList
           :attached_files_and_forms => clear_nbsp(persons_values[12].content).strip,
           :source => clear_nbsp(persons_values[13].content).strip,
           :job_title => clear_nbsp(self.job_title).strip
-          )
+        }
       end
       people
     else
