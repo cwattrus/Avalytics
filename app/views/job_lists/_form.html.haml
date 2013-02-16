@@ -1,7 +1,7 @@
 = form_for @job_list do |f|
   - if @job_list.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@job_list.errors.count, "error")} prohibited this job_list from being saved:"
+      %h2= "#{pluralize(@job_list.errors.count, "error")} prohibited this job list from being saved:"
       %ul
         - @job_list.errors.full_messages.each do |msg|
           %li= msg

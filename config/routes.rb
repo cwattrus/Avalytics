@@ -2,7 +2,7 @@ Avalytics::Application.routes.draw do
   resources :job_lists
 
 
-  resources :people
+  resources :people, :only => [:index, :show]
 
 
   # The priority is based upon order of creation:

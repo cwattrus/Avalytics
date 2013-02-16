@@ -8,6 +8,8 @@ gem 'rails', '3.2.11'
 gem 'mongo_mapper'
 gem 'bson_ext'
 
+gem 'nokogiri'
+
 gem 'haml', '= 3.1.7'
 # Gems used only for assets and not required
 # in production environments by default.

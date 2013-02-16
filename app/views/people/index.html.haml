@@ -2,18 +2,39 @@
 
 %table
   %tr
-    %th Name
-    %th
-    %th
-    %th
+    %th Avature ID
+    %th First Name
+    %th Last Name
+    %th Creation Date
+    %th Last Updated Date
+    %th Grade
+    %th Graduate Questionaire Score
+    %th Countries
+    %th Cities
+    %th Step
+    %th Referred By
+    %th Recruiter
+    %th Attached Files And Forms
+    %th Source
+    %th Job Title
 
   - @people.each do |person|
     %tr
-      %td= person.name
+      %td= person.avature_id
+      %td= person.first_name
+      %td= person.last_name
+      %td= person.creation_date
+      %td= person.last_updated_date
+      %td= person.grade
+      %td= person.questionaire_score
+      %td= person.countries
+      %td= person.cities
+      %td= person.step
+      %td= person.referred_by
+      %td= person.recruiter
+      %td= person.attached_files_and_forms
+      %td= person.source
+      %td= person.job_title
       %td= link_to 'Show', person
-      %td= link_to 'Edit', edit_person_path(person)
-      %td= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
-
-= link_to 'New Person', new_person_path
