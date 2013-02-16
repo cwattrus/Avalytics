@@ -1,10 +1,10 @@
-namespace :injest do
+namespace :ingest do
   task :people => :environment do
     people = []
     updated_count = 0
     created_count = 0
     JobList.all.each do |job_list|
-      puts "Injesting #{job_list.job_title} from #{job_list.url}"
+      puts "Ingesting #{job_list.job_title} from #{job_list.url}"
       scraped = job_list.scrape_people
       puts "Found #{scraped.size} people in job"
       scraped.each do |key, value|
