@@ -85,8 +85,8 @@ production:
       database: Avalytics
       username: admin
       password: i49cSCJrLgny
-      host: <%= ENV['OPENSHIFT_MONGODB_DB_HOST'] %>
-      port: <%= ENV['OPENSHIFT_MONGODB_DB_PORT'] %>
+      hosts:
+        - <%= ENV['OPENSHIFT_MONGODB_DB_HOST'] || 'localhost' %>:<%= ENV['OPENSHIFT_MONGODB_DB_PORT'] || 27017 %>
       options:
         consistency: :strong
         # In the test environment we lower the retries and retry interval to
