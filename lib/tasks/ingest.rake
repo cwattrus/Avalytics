@@ -8,7 +8,8 @@ namespace :ingest do
       scraped = job_list.scrape_people
       puts "Found #{scraped.size} people in job"
       scraped.each do |key, value|
-        person = Person.find_by_avature_id(key.to_i)
+        Mongoid.raise_not_found_error = false
+        person = Person.find_by(:avature_id => key.to_i)
         if person then
           updated_count += 1
           person.update_attributes(value)
