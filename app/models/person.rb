@@ -1,19 +1,19 @@
 class Person
-  include MongoMapper::Document
+  include Mongoid::Document
 
-  key :avature_id, Integer
-  key :first_name, String
-  key :last_name, String
-  key :creation_date, Date
-  key :last_updated_date, Date
-  key :grade, String
-  key :questionaire_score, Integer
-  key :countries, Array
-  key :cities, Array
-  key :step, String
-  key :referred_by, String
-  key :recruiter, String
-  key :attached_files_and_forms, String
-  key :source, String
-  key :job_title, String
+  field :avature_id, type: Integer
+  field :first_name, type: String
+  field :last_name, type: String
+  field :creation_date, type: Date
+  field :last_updated_date, type: Date
+  field :grade, type: String
+  field :questionaire_score, type: Integer
+  field :countries, type: Array
+  field :cities, type: Array
+  field :step, type: String
+  field :referred_by, type: String
+  field :recruiter, type: String
+  field :attached_files_and_forms, type: String
+  field :source, type: String
+  field :job_title, type: String
 end

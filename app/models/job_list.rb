@@ -19,10 +19,10 @@ class JobList
     "Attached files and forms",
     "Source"]
 
-  include MongoMapper::Document
+  include Mongoid::Document
 
-  key :job_title, String
-  key :url, String
+  field :job_title, type: String
+  field :url, type: String
 
   def scrape_people
     doc = Nokogiri::HTML(open(self.url))
