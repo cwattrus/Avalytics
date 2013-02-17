@@ -8,6 +8,8 @@ gem 'rails', '3.2.11'
 gem 'mongoid'
 gem 'bson_ext'
 
+gem 'devise'
+
 gem 'nokogiri'
 
 gem 'haml', '= 3.1.7'

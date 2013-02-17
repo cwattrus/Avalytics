@@ -1,4 +1,6 @@
 Avalytics::Application.routes.draw do
+  devise_for :users
+
   resources :job_lists
 
 
