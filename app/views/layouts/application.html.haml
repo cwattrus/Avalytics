@@ -28,6 +28,9 @@
           %a.brand(href="#") Avalytics
           .container.nav-collapse
             %ul.nav
+              %li= link_to "All People", people_path
+              %li= link_to "Cleanup", records_to_clean_path
+              %li= link_to "Job Lists", job_lists_path
               - if user_signed_in?
                 %li= link_to "Change Password", edit_user_registration_path
                 %li= link_to "Logout", destroy_user_session_path, :method => :delete
@@ -39,7 +42,7 @@
           = yield
 
       %footer
-        %p &copy; Company 2013
+        %p &copy; ThoughtWorks 2013
     /
       Javascripts
       \==================================================

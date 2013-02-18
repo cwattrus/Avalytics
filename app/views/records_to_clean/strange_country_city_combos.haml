@@ -1,4 +1,4 @@
-%h1 People with messed up country city combos (#{@people.size} people)
+%h1 #{@people.size} People with messed up country city combos
 
 %table.table.table-striped.table-bordered.table-hover.table-condensed
   %thead
@@ -33,6 +33,6 @@
       %td= person.recruiter
       %td= person.source
       %td= person.job_title
-      %td= link_to 'Show', person
+      %td= link_to 'Show', person, :class => "btn"
 
 %br

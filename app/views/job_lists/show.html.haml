@@ -7,6 +7,6 @@
   %b Url:
   = @job_list.url
 
-= link_to 'Edit', edit_job_list_path(@job_list)
-\|
-= link_to 'Back', job_lists_path
+.btn-group
+  = link_to 'Edit', edit_job_list_path(@job_list), :class => "btn"
+  = link_to 'Back', job_lists_path, :class => "btn"

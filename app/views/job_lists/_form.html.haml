@@ -13,4 +13,5 @@
     = f.label :url
     = f.text_field :url
   .actions
-    = f.submit 'Save'
+    %button.btn{:name => "commit", :type => "submit"}
+      Save

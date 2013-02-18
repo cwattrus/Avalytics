@@ -1,4 +1,4 @@
-%h1 Listing people
+%h1 Listing #{@people.size} people
 
 %table.table.table-striped.table-bordered.table-hover.table-condensed
   %thead
@@ -33,6 +33,6 @@
       %td= person.recruiter
       %td= person.source
       %td= person.job_title
-      %td= link_to 'Show', person
+      %td= link_to 'Show', person, :class => "btn"
 
 %br

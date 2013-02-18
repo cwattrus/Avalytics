@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to 'Show', @job_list
-\|
-= link_to 'Back', job_lists_path
+.btn-group
+  = link_to 'Show', @job_list, :class => "btn"
+  = link_to 'Back', job_lists_path, :class => "btn"
