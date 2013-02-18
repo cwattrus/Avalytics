@@ -1,6 +1,6 @@
 %h1 Listing people
 
-%table.table.table-striped.table-bordered.table-hover
+%table.table.table-striped.table-bordered.table-hover.table-condensed
   %thead
     %tr
       %th Avature ID
@@ -16,6 +16,7 @@
       %th Recruiter
       %th Source
       %th Job Title
+      %th
 
   - @people.each do |person|
     %tr
