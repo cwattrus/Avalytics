@@ -9,6 +9,7 @@ Avalytics::Application.routes.draw do
 
   resources :people, :only => [:index, :show]
 
+  match 'records_to_clean/strange_country_city_combos' => 'records_to_clean#strange_country_city_combos'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
