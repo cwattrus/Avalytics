@@ -7,4 +7,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
+    - if user_signed_in?
+      = link_to "Change Password", edit_user_registration_path
+      = link_to "Logout", destroy_user_session_path, :method => :delete
     = yield
