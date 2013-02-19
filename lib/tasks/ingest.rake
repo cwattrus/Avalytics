@@ -4,9 +4,9 @@ namespace :ingest do
     updated_count = 0
     created_count = 0
     JobList.all.each do |job_list|
-      puts "Ingesting #{job_list.job_title} from #{job_list.url}"
+      puts "#{Time.now} - Ingesting #{job_list.job_title} from #{job_list.url}"
       scraped = job_list.scrape_people
-      puts "Found #{scraped.size} people in job"
+      puts "#{Time.now} - Found #{scraped.size} people in job"
       scraped.each do |key, value|
         Mongoid.raise_not_found_error = false
         person = Person.find_by(:avature_id => key.to_i)
@@ -22,7 +22,7 @@ namespace :ingest do
         people << person
       end
     end
-    puts "Updated #{updated_count} people and created #{created_count} people"
+    puts "#{Time.now} - Updated #{updated_count} people and created #{created_count} people"
     people
   end
 end
