@@ -33,6 +33,8 @@
       %td= person.recruiter
       %td= person.source
       %td= person.job_title
-      %td= link_to 'Show', person, :class => "btn"
+      %td
+        = link_to 'Show', person, :class => "btn"
+        = link_to "Avature", "https://jobs.thoughtworks.com/#Person/#{person.avature_id}", :class => "btn", :target => "_blank"
 
 %br
