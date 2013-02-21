@@ -10,7 +10,9 @@ Avalytics::Application.routes.draw do
   resources :people, :only => [:index, :show]
 
   match 'reports/sunburst' => 'reports#sunburst'
-  match 'data/jobs_with_grades_with_steps' => 'data#jobs_with_grades_with_steps'
+  match 'reports/bubbles' => 'reports#bubbles'
+  match 'data/jobs_with_grades_with_steps_sunburst' => 'data#jobs_with_grades_with_steps_sunburst'
+  match 'data/jobs_with_grades_with_steps_bubbles' => 'data#jobs_with_grades_with_steps_bubbles'
   match 'records_to_clean/strange_country_city_combos' => 'records_to_clean#strange_country_city_combos'
   match 'records_to_clean' => 'records_to_clean#index'
 
