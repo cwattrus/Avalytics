@@ -1,21 +1,21 @@
-%h1 #{@people.size} People with messed up country city combos
+%h3 #{@people.size} People with messed up country city combos
 
 %table.table.table-striped.table-bordered.table-hover.table-condensed
   %thead
-    %tr
-      %th Avature ID
-      %th First Name
-      %th Last Name
-      %th Creation Date
-      %th Last Updated Date
-      %th Grade
-      %th Countries
-      %th Cities
-      %th Step
-      %th Referred By
-      %th Recruiter
-      %th Source
-      %th Job Title
+    %tr.heading
+      %th.small AvatureID
+      %th.small First Name
+      %th.small Last Name
+      %th.small Created
+      %th.small Updated
+      %th.small Grade
+      %th.small Countries
+      %th.small Cities
+      %th.small Step
+      %th.small Referrer
+      %th.small Recruiter
+      %th.small Source
+      %th.small Job Title
       %th
 
   - @people.each do |person|
@@ -34,7 +34,7 @@
       %td= person.source
       %td= person.job_title
       %td
-        = link_to 'Show', person, :class => "btn"
-        = link_to "Avature", "https://jobs.thoughtworks.com/#Person/#{person.avature_id}", :class => "btn", :target => "_blank"
+        = link_to 'Show', person, :class => "btn btn-success"
+        = link_to " ", "https://jobs.thoughtworks.com/#Person/#{person.avature_id}", :class => "btn btn-small icon-share-alt", :target => "_blank"
 
 %br
