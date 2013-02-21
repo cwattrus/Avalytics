@@ -1,5 +1,13 @@
 %p#notice= notice
 
+.title= @person.first_name + " " + @person.last_name
+%i.icon-user
+  %b=@person.grade
+%i.icon-map-marker
+  %b= @person.countries.first + ", " + @person.cities.first
+
+%hr 
+
 %p
   %b Avature ID:
   = @person.avature_id
@@ -46,5 +54,7 @@
   %b Job Title:
   = @person.job_title
   %br
+%hr
 
-= link_to 'Back', people_path, :class => "btn"
+= link_to 'Back to People', people_path, :class => "btn"
+
