@@ -13,8 +13,10 @@ Avalytics::Application.routes.draw do
   match 'reports/bubbles' => 'reports#bubbles'
   match 'data/jobs_with_grades_with_steps_sunburst' => 'data#jobs_with_grades_with_steps_sunburst'
   match 'data/jobs_with_grades_with_steps_bubbles' => 'data#jobs_with_grades_with_steps_bubbles'
-  match 'records_to_clean/strange_country_city_combos' => 'records_to_clean#strange_country_city_combos'
   match 'records_to_clean' => 'records_to_clean#index'
+  match 'records_to_clean/strange_country_city_combos' => 'records_to_clean#strange_country_city_combos'
+  match 'records_to_clean/gender' => 'records_to_clean#gender'
+  match 'records_to_clean/fix_gender' => 'records_to_clean#fix_gender'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

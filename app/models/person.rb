@@ -16,4 +16,15 @@ class Person
   field :attached_files_and_forms, type: String
   field :source, type: String
   field :job_title, type: String
+  field :female, type: Boolean
+
+  def gender
+    if self.female == true
+      "Female"
+    elsif self.female == false
+      "Male"
+    else
+      "Unknown"
+    end
+  end
 end

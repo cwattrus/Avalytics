@@ -10,4 +10,15 @@ class RecordsToCleanController < ApplicationController
       format.json { render json: @people }
     end
   end
+
+  def gender
+    @person = Person.where(:female => nil).sample
+  end
+
+  def fix_gender
+    person = Person.find(params[:id])
+    person.female = params[:gender] == "female" ? true : false
+    person.save()
+    redirect_to records_to_clean_gender_path
+  end
 end

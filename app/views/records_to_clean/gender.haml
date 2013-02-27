@@ -1,6 +1,13 @@
 %p#notice= notice
 
-.title= @person.first_name + " " + @person.last_name
+%a.btn.btn-large{:href => "#{records_to_clean_fix_gender_path}?id=#{@person.id}&gender=male"}
+  Male
+%a.btn.btn-large{:href => "#{records_to_clean_fix_gender_path}?id=#{@person.id}&gender=female"}
+  Female
+%a.btn.btn-large{:href => "#{records_to_clean_gender_path}"}
+  Skip
+
+.title= "Set the gender of #{@person.first_name} #{@person.last_name}"
 %i.icon-user
   %b=@person.grade
 %i.icon-map-marker
@@ -17,9 +24,6 @@
   %br
   %b Last Name:
   = @person.last_name
-  %br
-  %b Gender:
-  = @person.gender
   %br
   %b Creation Date:
   = @person.creation_date
@@ -57,7 +61,3 @@
   %b Job Title:
   = @person.job_title
   %br
-%hr
-
-= link_to 'Back to People', people_path, :class => "btn"
-
