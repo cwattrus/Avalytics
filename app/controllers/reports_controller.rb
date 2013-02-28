@@ -5,4 +5,7 @@ class ReportsController < ApplicationController
 
   def bubbles
   end
+
+  def genders
+  end
 end

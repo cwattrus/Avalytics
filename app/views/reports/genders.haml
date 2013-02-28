@@ -1,0 +1,32 @@
+:css
+  #chart svg {
+    height: 400px;
+  }
+
+#chart
+  %svg
+
+:javascript
+  $(function(){
+    $.getJSON('/data/gender_pie.json', function(data){
+      nv.addGraph(function() {
+        var chart = nv.models.pieChart()
+            .x(function(d) { return d.label })
+            .y(function(d) { return d.value })
+            .showLabels(true)
+            .width(400)
+            .height(400)
+            .tooltipContent(function(key, y, e, graph) {
+              return '<div class="btn-group"><div class="btn"><h5>' + key + '</h5></div>' +
+                     '<div class="btn">' +  parseInt(y,10) + '</div></div>'
+            });
+
+          d3.select("#chart svg")
+              .datum(data)
+            .transition().duration(1200)
+              .call(chart);
+
+        return chart;
+      });
+    });
+  });
