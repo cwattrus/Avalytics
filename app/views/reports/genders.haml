@@ -4,7 +4,7 @@
   %ul.dropdown-menu{:role => "menu", "aria-labelledby" => "dLabel"}
     %li
       %a.job{:href => "#", :tabindex => "-1", :onClick => "update_chart(base_url)"}
-        All
+        All jobs
     - @job_lists.each do |job_list|
       %li
         %a.job{:href => "#", :tabindex => "-1", :onClick => "update_chart(base_url+'?job_title=#{job_list.job_title}')"}
