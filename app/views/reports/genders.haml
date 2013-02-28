@@ -16,6 +16,7 @@
             .showLabels(true)
             .width(400)
             .height(400)
+            .color(["#EE7722", "#99BBBB", "#666677"])
             .tooltipContent(function(key, y, e, graph) {
               return '<div class="btn-group"><div class="btn"><h5>' + key + '</h5></div>' +
                      '<div class="btn">' +  parseInt(y,10) + '</div></div>'
@@ -23,7 +24,7 @@
 
           d3.select("#chart svg")
               .datum(data)
-            .transition().duration(1200)
+              .transition().duration(1200)
               .call(chart);
 
         return chart;
