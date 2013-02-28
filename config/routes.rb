@@ -9,6 +9,7 @@ Avalytics::Application.routes.draw do
 
   resources :people, :only => [:index, :show]
 
+  match 'reports' => 'reports#index'
   match 'reports/sunburst' => 'reports#sunburst'
   match 'reports/bubbles' => 'reports#bubbles'
   match 'reports/genders' => 'reports#genders'
