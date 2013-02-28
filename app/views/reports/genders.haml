@@ -1,3 +1,15 @@
+.dropdown
+  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+    Select a job title to filter
+  %ul.dropdown-menu{:role => "menu", "aria-labelledby" => "dLabel"}
+    %li
+      %a.job{:href => "#", :tabindex => "-1", :onClick => "update_chart(base_url)"}
+        All
+    - @job_lists.each do |job_list|
+      %li
+        %a.job{:href => "#", :tabindex => "-1", :onClick => "update_chart(base_url+'?job_title=#{job_list.job_title}')"}
+          = job_list.job_title
+
 :css
   #chart svg {
     height: 400px;
@@ -7,8 +19,10 @@
   %svg
 
 :javascript
-  $(function(){
-    $.getJSON('/data/gender_pie.json', function(data){
+  var base_url = '/data/gender_pie.json';
+  $(".dropdown-toggle").dropdown();
+  var update_chart = function(url){
+    $.getJSON(url, function(data){
       nv.addGraph(function() {
         var chart = nv.models.pieChart()
             .x(function(d) { return d.label })
@@ -30,4 +44,5 @@
         return chart;
       });
     });
-  });
+  };
+  update_chart(base_url);

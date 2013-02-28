@@ -75,21 +75,31 @@ class DataController < ApplicationController
   end
 
   def gender_pie
+    job_title = params[:job_title]
+    if job_title
+      female_count = Person.where(:female => true, :job_title => job_title).count
+      male_count = Person.where(:female => false, :job_title => job_title).count
+      unknown_count = Person.where(:female => nil, :job_title => job_title).count
+    else
+      female_count = Person.where(:female => true).count
+      male_count = Person.where(:female => false).count
+      unknown_count = Person.where(:female => nil).count
+    end
     @genders = [
       {
         :key => "Genders",
         :values => [
           {
             :label => "Female",
-            :value => Person.where(:female => true).count
+            :value => female_count
           },
           {
             :label => "Male",
-            :value => Person.where(:female => false).count
+            :value => male_count
           },
           {
             :label => "Unknown",
-            :value => Person.where(:female => nil).count
+            :value => unknown_count
           }
         ]
       }

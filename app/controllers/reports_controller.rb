@@ -7,5 +7,6 @@ class ReportsController < ApplicationController
   end
 
   def genders
+    @job_lists = JobList.all
   end
 end
