@@ -1,14 +1,20 @@
-.dropdown
-  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
-    Select a job title to filter
-  %ul.dropdown-menu{:role => "menu", "aria-labelledby" => "dLabel"}
-    %li
-      %a.job{:href => "#", :tabindex => "-1", :onClick => "update_chart(base_url)"}
-        All jobs
-    - @job_lists.each do |job_list|
-      %li
-        %a.job{:href => "#", :tabindex => "-1", :onClick => "update_chart(base_url+'?job_title=#{job_list.job_title}')"}
-          = job_list.job_title
+.container
+  .row 
+    .span1
+      .lead.pull-right
+        Filters: 
+    .span8  
+      .dropdown
+        %a.btn.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          Select a job title to filter
+        %ul.dropdown-menu{:role => "menu", "aria-labelledby" => "dLabel"}
+          %li
+            %a.job{:href => "#", :tabindex => "-1", :onClick => "update_chart(base_url)"}
+              All jobs
+          - @job_lists.each do |job_list|
+            %li
+              %a.job{:href => "#", :tabindex => "-1", :onClick => "update_chart(base_url+'?job_title=#{job_list.job_title}')"}
+                = job_list.job_title
 
 :css
   #chart svg {
@@ -32,8 +38,8 @@
             .height(400)
             .color(["#EE7722", "#99BBBB", "#666677"])
             .tooltipContent(function(key, y, e, graph) {
-              return '<div class="btn-group"><div class="btn"><h5>' + key + '</h5></div>' +
-                     '<div class="btn">' +  parseInt(y,10) + '</div></div>'
+              return '<div class="popover-title"><div class="lead">' + key + '</div>' +
+                     '<div class="lead"><strong>' +  parseInt(y,10) + '</strong></div></div>'
             });
 
           d3.select("#chart svg")
