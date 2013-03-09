@@ -1,5 +1,14 @@
 class Person
   include Mongoid::Document
+  RACES = [
+    "Black",
+    "White",
+    "Colored",
+    "Asian",
+    "Indian/Pakistani",
+    "Pacific Islander",
+    "Other"
+  ]
 
   field :avature_id, type: Integer
   field :first_name, type: String
@@ -17,6 +26,7 @@ class Person
   field :source, type: String
   field :job_title, type: String
   field :female, type: Boolean
+  field :race, type: String
 
   def gender
     if self.female == true

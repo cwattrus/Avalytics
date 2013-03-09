@@ -21,4 +21,15 @@ class RecordsToCleanController < ApplicationController
     person.save()
     redirect_to records_to_clean_gender_path
   end
+
+  def race
+    @person = Person.where(:race => nil).sample
+  end
+
+  def fix_race
+    person = Person.find(params[:id])
+    person.race = params[:race]
+    person.save()
+    redirect_to records_to_clean_race_path
+  end
 end

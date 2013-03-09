@@ -1,0 +1,8 @@
+- Person::RACES.each do |race|
+  %a.btn.btn-large{:href => "#{records_to_clean_fix_race_path}?id=#{@person.id}&race=#{race}"}
+    = race
+%a.btn.btn-large.btn-warning{:href => "#{records_to_clean_race_path}"}
+  Skip
+
+.title= "Set the race of:"
+= render "people/person"

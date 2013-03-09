@@ -20,6 +20,8 @@ Avalytics::Application.routes.draw do
   match 'records_to_clean/strange_country_city_combos' => 'records_to_clean#strange_country_city_combos'
   match 'records_to_clean/gender' => 'records_to_clean#gender'
   match 'records_to_clean/fix_gender' => 'records_to_clean#fix_gender'
+  match 'records_to_clean/race' => 'records_to_clean#race'
+  match 'records_to_clean/fix_race' => 'records_to_clean#fix_race'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
