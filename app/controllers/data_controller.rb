@@ -90,16 +90,16 @@ class DataController < ApplicationController
         :key => "Genders",
         :values => [
           {
+            :label => "Unknown",
+            :value => unknown_count
+          },
+          {
             :label => "Female",
             :value => female_count
           },
           {
             :label => "Male",
             :value => male_count
-          },
-          {
-            :label => "Unknown",
-            :value => unknown_count
           }
         ]
       }
@@ -107,6 +107,33 @@ class DataController < ApplicationController
 
     respond_to do |format|
       format.json { render json: @genders}
+    end
+  end
+
+  def race_pie
+    job_title = params[:job_title]
+
+    values = Person::RACES.map do |race|
+      {
+        :label => race,
+        :value => job_title ? Person.where(:job_title => job_title, :race => race).count : Person.where(:race => race).count
+      }
+    end
+
+    values = [{
+      :label => "Unknown",
+      :value => job_title ? Person.where(:job_title => job_title, :race => nil).count : Person.where(:race => nil).count
+    }] + values
+
+    @races = [
+      {
+        :key => "Races",
+        :values => values
+      }
+    ]
+
+    respond_to do |format|
+      format.json { render json: @races}
     end
   end
 end

@@ -9,4 +9,8 @@ class ReportsController < ApplicationController
   def genders
     @job_lists = JobList.all
   end
+
+  def races
+    @job_lists = JobList.all
+  end
 end
