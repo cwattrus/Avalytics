@@ -1,5 +1,3 @@
-%p#notice= notice
-
 %a.btn.btn-large{:href => "#{records_to_clean_fix_gender_path}?id=#{@person.id}&gender=male"}
   Male
 %a.btn.btn-large{:href => "#{records_to_clean_fix_gender_path}?id=#{@person.id}&gender=female"}
@@ -7,57 +5,5 @@
 %a.btn.btn-large{:href => "#{records_to_clean_gender_path}"}
   Skip
 
-.title= "Set the gender of #{@person.first_name} #{@person.last_name}"
-%i.icon-user
-  %b=@person.grade
-%i.icon-map-marker
-  %b= @person.location
-
-%hr
-
-%p
-  %b Avature ID:
-  = @person.avature_id
-  %br
-  %b First Name:
-  = @person.first_name
-  %br
-  %b Last Name:
-  = @person.last_name
-  %br
-  %b Creation Date:
-  = @person.creation_date
-  %br
-  %b Last Updated Date:
-  = @person.last_updated_date
-  %br
-  %b Grade:
-  = @person.grade
-  %br
-  %b Graduate Questionaire Score:
-  = @person.questionaire_score
-  %br
-  %b Countries:
-  = @person.countries
-  %br
-  %b Cities:
-  = @person.cities
-  %br
-  %b Step:
-  = @person.step
-  %br
-  %b Referred By:
-  = @person.referred_by
-  %br
-  %b Recruiter:
-  = @person.recruiter
-  %br
-  %b Attached Files and Forms:
-  = @person.attached_files_and_forms
-  %br
-  %b Source:
-  = @person.source
-  %br
-  %b Job Title:
-  = @person.job_title
-  %br
+.title= "Set the gender of:"
+= render "people/person"
