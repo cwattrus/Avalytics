@@ -4,8 +4,7 @@
   %thead
     %tr.heading
       %th.small AvatureID
-      %th.small First Name
-      %th.small Last Name
+      %th.small Name
       %th.small Gender
       %th.small Race
       %th.small Created
@@ -23,8 +22,7 @@
   - @people.each do |person|
     %tr
       %td.small= person.avature_id
-      %td.small= person.first_name
-      %td.small= person.last_name
+      %td.small= "#{person.first_name} #{person.last_name}"
       %td.small= person.gender
       %td.small= person.race
       %td.small= person.creation_date
