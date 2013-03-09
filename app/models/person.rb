@@ -27,4 +27,8 @@ class Person
       "Unknown"
     end
   end
+
+  def location
+    self.countries.first + ", " + self.cities.first unless self.countries.empty?
+  end
 end
