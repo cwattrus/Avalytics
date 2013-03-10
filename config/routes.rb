@@ -20,9 +20,11 @@ Avalytics::Application.routes.draw do
   match 'data/race_pie' => 'data#race_pie'
   match 'records_to_clean' => 'records_to_clean#index'
   match 'records_to_clean/strange_country_city_combos' => 'records_to_clean#strange_country_city_combos'
-  match 'records_to_clean/gender' => 'records_to_clean#gender'
+  match 'records_to_clean/gender/:id' => 'records_to_clean#gender', :as => 'records_to_clean_gender'
+  match 'records_to_clean/gender_sample' => 'records_to_clean#gender_sample'
   match 'records_to_clean/fix_gender' => 'records_to_clean#fix_gender'
-  match 'records_to_clean/race' => 'records_to_clean#race'
+  match 'records_to_clean/race/:id' => 'records_to_clean#race', :as => 'records_to_clean_race'
+  match 'records_to_clean/race_sample' => 'records_to_clean#race_sample'
   match 'records_to_clean/fix_race' => 'records_to_clean#fix_race'
 
   # The priority is based upon order of creation:
