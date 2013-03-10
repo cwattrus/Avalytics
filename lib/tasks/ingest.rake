@@ -29,13 +29,14 @@ namespace :ingest do
   end
 
   task :locations => :environment do
-    count = Person.where(location: nil).count
+    ids_to_leave_out = Person.strange_country_city_combos.distinct(:id)
+    count = Person.where(location: nil, :id.nin => ids_to_leave_out).count
     puts "#{Time.now} - Getting location information for #{count} people"
     count = 0
-    Person.where(location: nil).each do |person|
+    Person.where(location: nil, :id.nin => ids_to_leave_out).each do |person|
       puts "#{Time.now} - Looking for location of #{person.first_name} #{person.last_name}"
       doc = Nokogiri::XML(open(person.location_url))
-      unless doc.xpath("//GeocodeResponse/status").text == "ZERO_RESULTS"
+      unless doc.xpath("//GeocodeResponse/status").nil? || doc.xpath("//GeocodeResponse/status").text == "ZERO_RESULTS"
         lat = doc.xpath("//GeocodeResponse/result/geometry/location/lat")[0].text.to_f
         lng = doc.xpath("//GeocodeResponse/result/geometry/location/lng")[0].text.to_f
         person.location = [lat, lng]

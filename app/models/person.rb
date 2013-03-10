@@ -29,6 +29,8 @@ class Person
   field :race, type: String
   field :location, type: Array
 
+  scope :strange_country_city_combos, for_js("this.countries.length != 1 || (this.cities.length > this.countries.length) || this.location == null")
+
   def gender
     if self.female == true
       "Female"

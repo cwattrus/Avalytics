@@ -3,7 +3,7 @@ class RecordsToCleanController < ApplicationController
   end
 
   def strange_country_city_combos
-    @people = Person.for_js("this.countries.length != 1 || (this.cities.length > this.countries.length) || this.location == null")
+    @people = Person.strange_country_city_combos
 
     respond_to do |format|
       format.html
