@@ -14,6 +14,8 @@ Avalytics::Application.routes.draw do
   match 'reports/bubbles' => 'reports#bubbles'
   match 'reports/genders' => 'reports#genders'
   match 'reports/races' => 'reports#races'
+  match 'reports/map' => 'reports#map'
+  match 'data/people_with_location' => 'data#people_with_location'
   match 'data/jobs_with_grades_with_steps_sunburst' => 'data#jobs_with_grades_with_steps_sunburst'
   match 'data/jobs_with_grades_with_steps_bubbles' => 'data#jobs_with_grades_with_steps_bubbles'
   match 'data/gender_pie' => 'data#gender_pie'

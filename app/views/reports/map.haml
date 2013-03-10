@@ -1,0 +1,30 @@
+#map-container
+  #map
+
+:javascript
+
+  function update_map() {
+    $.ajax({
+      dataType: "json",
+      url: "/data/people_with_location.json",
+      success: function(data){
+        var center = new google.maps.LatLng(-26.2041028, 28.0473051);
+        var options = {
+          'zoom': 2,
+          'center': center,
+          'mapTypeId': google.maps.MapTypeId.ROADMAP
+        };
+
+        var map = new google.maps.Map(document.getElementById("map"), options);
+
+        var markers = [];
+        for (var i = 0; i < data.length; i++) {
+          var latLng = new google.maps.LatLng(data[i].location[0], data[i].location[1]);
+          var marker = new google.maps.Marker({'position': latLng});
+          markers.push(marker);
+        }
+        var markerCluster = new MarkerClusterer(map, markers);
+      }
+    });
+  }
+  google.maps.event.addDomListener(window, 'load', update_map);

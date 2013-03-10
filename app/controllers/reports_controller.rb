@@ -13,4 +13,7 @@ class ReportsController < ApplicationController
   def races
     @job_lists = JobList.all
   end
+
+  def map
+  end
 end

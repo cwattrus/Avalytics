@@ -1,4 +1,12 @@
 class DataController < ApplicationController
+  def people_with_location
+    @people = Person.where(:location.ne => nil)
+
+    respond_to do |format|
+      format.json { render json: @people}
+    end
+  end
+
   def jobs_with_grades_with_steps_bubbles
     @jobs_with_grades_and_steps = {
       :name => "",
