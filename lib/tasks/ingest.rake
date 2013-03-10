@@ -36,7 +36,7 @@ namespace :ingest do
     Person.where(location: nil, :id.nin => ids_to_leave_out).each do |person|
       puts "#{Time.now} - Looking for location of #{person.first_name} #{person.last_name}"
       doc = Nokogiri::XML(open(person.location_url))
-      unless doc.xpath("//GeocodeResponse/status").nil? || doc.xpath("//GeocodeResponse/status").text == "ZERO_RESULTS"
+      if doc.xpath("//GeocodeResponse/status").text == "OK"
         lat = doc.xpath("//GeocodeResponse/result/geometry/location/lat")[0].text.to_f
         lng = doc.xpath("//GeocodeResponse/result/geometry/location/lng")[0].text.to_f
         person.location = [lat, lng]
