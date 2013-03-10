@@ -20,10 +20,18 @@
         var markers = [];
         for (var i = 0; i < data.length; i++) {
           var latLng = new google.maps.LatLng(data[i].location[0], data[i].location[1]);
-          var marker = new google.maps.Marker({'position': latLng});
+          var marker = new google.maps.Marker({position: latLng, title: data[i].first_name + " " + data[i].last_name});
+          marker.name = data[i].first_name + " " + data[i].last_name;
+          google.maps.event.addListener(marker, 'click', function() {
+            var infowindow = new google.maps.InfoWindow(
+              { content: this.name,
+                size: new google.maps.Size(50,50)
+              });
+            infowindow.open(map,this);
+          });
           markers.push(marker);
         }
-        var markerCluster = new MarkerClusterer(map, markers);
+        var markerCluster = new MarkerClusterer(map, markers, {maxZoom: 13});
       }
     });
   }
