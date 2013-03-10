@@ -27,6 +27,7 @@ class Person
   field :job_title, type: String
   field :female, type: Boolean
   field :race, type: String
+  field :location, type: Array
 
   def gender
     if self.female == true
@@ -38,7 +39,13 @@ class Person
     end
   end
 
-  def location
+  def display_location
     self.countries.first + ", " + self.cities.first unless self.countries.empty?
+  end
+
+  def location_url
+    address = self.countries.first
+    address += self.cities.first unless self.cities.empty?
+    "http://maps.googleapis.com/maps/api/geocode/xml?address=#{URI::encode(address)}&sensor=false"
   end
 end

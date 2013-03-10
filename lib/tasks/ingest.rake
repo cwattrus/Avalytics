@@ -1,3 +1,5 @@
+require 'open-uri'
+
 namespace :ingest do
   task :people => :environment do
     people = []
@@ -24,5 +26,23 @@ namespace :ingest do
     end
     puts "#{Time.now} - Updated #{updated_count} people and created #{created_count} people"
     people
+  end
+
+  task :locations => :environment do
+    count = Person.where(location: nil).count
+    puts "#{Time.now} - Getting location information for #{count} people"
+    count = 0
+    Person.where(location: nil).each do |person|
+      puts "#{Time.now} - Looking for location of #{person.first_name} #{person.last_name}"
+      doc = Nokogiri::XML(open(person.location_url))
+      unless doc.xpath("//GeocodeResponse/status").text == "ZERO_RESULTS"
+        lat = doc.xpath("//GeocodeResponse/result/geometry/location/lat")[0].text.to_f
+        lng = doc.xpath("//GeocodeResponse/result/geometry/location/lng")[0].text.to_f
+        person.location = [lat, lng]
+        person.save
+        count += 1
+      end
+    end
+    puts "#{Time.now} - Got location information for #{count} people"
   end
 end
