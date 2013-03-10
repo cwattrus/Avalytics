@@ -29,7 +29,7 @@ namespace :ingest do
   end
 
   task :locations => :environment do
-    ids_to_leave_out = Person.strange_country_city_combos.distinct(:id)
+    ids_to_leave_out = Person.bad_country_city_combos.distinct(:id)
     count = Person.where(location: nil, :id.nin => ids_to_leave_out).count
     puts "#{Time.now} - Getting location information for #{count} people"
     count = 0
