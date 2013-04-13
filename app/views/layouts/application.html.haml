@@ -20,24 +20,25 @@
 
 
   %body
-    .navbar.navbar-fluid-top.navbar-fixed-top
-      .avalytics-navbar-inner
-        .container-fluid
-          %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-            %span.icon-bar
-            %span.icon-bar
-            %span.icon-bar
-          %a.brand(href="#") Avalytics
-          .nav-collapse
-            %ul.nav
-              %li= link_to "People", people_path
-              %li= link_to "Cleanup", records_to_clean_path
-              %li= link_to "Reports", reports_path
-              %li= link_to "Job Lists", job_lists_path
-            %ul.nav.pull-right
-              - if user_signed_in?
-                %li= link_to "Change Password", edit_user_registration_path
-                %li= link_to "Logout", destroy_user_session_path, :method => :delete
+    - if user_signed_in?
+      .navbar.navbar-fluid-top.navbar-fixed-top
+        .avalytics-navbar-inner
+          .container-fluid
+            %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
+              %span.icon-bar
+              %span.icon-bar
+              %span.icon-bar
+            %a.brand(href="#") Avalytics
+            .nav-collapse
+              %ul.nav
+                %li= link_to "People", people_path
+                %li= link_to "Cleanup", records_to_clean_path
+                %li= link_to "Reports", reports_path
+                %li= link_to "Job Lists", job_lists_path
+              %ul.nav.pull-right
+                - if user_signed_in?
+                  %li= link_to "Change Password", edit_user_registration_path
+                  %li= link_to "Logout", destroy_user_session_path, :method => :delete
 
     .container-fluid
       .row-fluid

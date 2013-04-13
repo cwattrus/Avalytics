@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require d3.v3
+//= require flat-ui
 //= require_tree .
