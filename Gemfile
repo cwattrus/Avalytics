@@ -17,6 +17,7 @@ gem 'haml', '= 3.1.7'
 gem 'd3_rails'
 
 gem 'twitter-bootstrap-rails'
+gem 'flat-ui-rails'
 gem 'therubyracer', :platforms => :ruby
 
 # Gems used only for assets and not required
