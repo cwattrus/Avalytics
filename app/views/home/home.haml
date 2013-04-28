@@ -32,8 +32,20 @@
             %li= link_to "Bubbles", reports_bubbles_path
           .btn.btn-primary.btn-large.btn-block{:onclick => "$('.flip-container#experiments').toggleClass('flipped');"} Back
   .span3
-    .tile
-      = image_tag "illustrations/retina.png", :class => "tile-image big-illustration"
-      %h3.tile-title Clean Up
-      %p Improve the data in Avalytics for better results.
-      %a.btn.btn-primary.btn-large.btn-block{:href => records_to_clean_path} Get to it!
+    .flip-container#clean-up
+      .flipper
+        .tile.front
+          = image_tag "illustrations/retina.png", :class => "tile-image big-illustration"
+          %h3.tile-title Clean Up
+          %p Improve the data in Avalytics for better results.
+          .btn.btn-primary.btn-large.btn-block{:onclick => "$('.flip-container#clean-up').toggleClass('flipped');"} Get to it!
+        .tile.back
+          %ul.nav.nav-tabs.nav-stacked{:style => "width: 190px; height: 247px"}
+            %li.nav-header
+              Strange Data
+            %li= link_to "Country/City Combos", records_to_clean_strange_country_city_combos_path
+            %li.nav-header
+              Data Assignment
+            %li= link_to "Gender", records_to_clean_gender_sample_path
+            %li= link_to "Race", records_to_clean_race_sample_path
+          .btn.btn-primary.btn-large.btn-block{:onclick => "$('.flip-container#clean-up').toggleClass('flipped');"} Back
