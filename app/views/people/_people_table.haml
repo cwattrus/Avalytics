@@ -18,8 +18,8 @@
       %td.small= person.gender
       %td.small= person.race
       %td.small= person.grade
-      %td.small= person.countries
-      %td.small= person.cities
+      %td.small= person.countries.join(", ")
+      %td.small= person.cities.join(", ")
       %td.small= person.step
       %td.small= person.source
       %td.small= person.job_title
