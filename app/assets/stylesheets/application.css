@@ -14,8 +14,9 @@
  *= require_self
  */
 
-body {
-  padding-top: 65px;
+.no-link-style, .no-link-style:hover {
+  color: inherit;
+  text-decoration: inherit;
 }
 
 .small {
@@ -58,11 +59,11 @@ body {
   -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
   -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
   box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
-  width: 1300px;
+  width: 920px;
 }
 
 #map {
-  width: 1300px;
+  width: 920px;
   height: 500px;
 }
 

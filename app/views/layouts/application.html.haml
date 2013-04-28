@@ -20,31 +20,36 @@
 
 
   %body
-    - if user_signed_in?
-      .navbar.navbar-fluid-top.navbar-fixed-top
-        .avalytics-navbar-inner
-          .container-fluid
-            %a.btn.btn-navbar(data-target=".nav-collapse" data-toggle="collapse")
-              %span.icon-bar
-              %span.icon-bar
-              %span.icon-bar
-            %a.brand(href="#") Avalytics
-            .nav-collapse
-              %ul.nav
-                %li= link_to "People", people_path
-                %li= link_to "Cleanup", records_to_clean_path
-                %li= link_to "Reports", reports_path
-                %li= link_to "Job Lists", job_lists_path
-              %ul.nav.pull-right
-                - if user_signed_in?
-                  %li= link_to "Change Password", edit_user_registration_path
-                  %li= link_to "Logout", destroy_user_session_path, :method => :delete
-
-    .container-fluid
-      .row-fluid
+    .container
+      - if user_signed_in?
+        .row
+          .span12
+            .pull-left
+              %h1
+                %a.no-link-style{:href => "/"}
+                  Avalytics
+                  %span{:style => "color:#BDC3C7"}
+                    |
+                  %small
+                    data driven recruiting
+            .btn-toolbar.panel.pull-right
+              .btn-group
+                %a.btn{:href => people_path}
+                  %i.fui-man-16
+                    People
+                %a.btn{:href => job_lists_path}
+                  %i.fui-menu-16
+                    Job Lists
+                %a.btn{:href => edit_user_registration_path}
+                  %i.fui-lock-16
+                    Change Password
+                %a.btn{:href => destroy_user_session_path, "data-method" => "delete", :rel => "nofollow"}
+                  %i.fui-cross-16
+                    Logout
+      .row
         .span12
           = bootstrap_flash
-          = yield
+        = yield
 
       %center
         %p &copy; ThoughtWorks 2013

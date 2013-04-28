@@ -1,36 +1,26 @@
 %table.table.table-striped.table-bordered.table-hover.table-condensed
   %thead
     %tr.heading
-      %th.small AvatureID
       %th.small Name
       %th.small Gender
       %th.small Race
-      %th.small Created
-      %th.small Updated
       %th.small Grade
       %th.small Countries
       %th.small Cities
       %th.small Step
-      %th.small Referrer
-      %th.small Recruiter
       %th.small Source
       %th.small Job Title
       %th
 
   - @people.each do |person|
     %tr
-      %td.small= person.avature_id
       %td.small= "#{person.first_name} #{person.last_name}"
       %td.small= person.gender
       %td.small= person.race
-      %td.small= person.creation_date
-      %td.small= person.last_updated_date
       %td.small= person.grade
       %td.small= person.countries
       %td.small= person.cities
       %td.small= person.step
-      %td.small= person.referred_by
-      %td.small= person.recruiter
       %td.small= person.source
       %td.small= person.job_title
       %td

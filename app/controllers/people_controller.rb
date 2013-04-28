@@ -1,12 +1,8 @@
 class PeopleController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index]
+  before_filter :authenticate_user!
   # GET /people
   # GET /people.json
   def index
-    unless user_signed_in?
-      return redirect_to new_user_session_path
-    end
-
     @people = Person.all
 
     respond_to do |format|

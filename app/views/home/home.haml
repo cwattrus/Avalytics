@@ -1,0 +1,25 @@
+.demo-tiles
+  .span3
+    .tile
+      = image_tag "illustrations/compass.png", :class => "tile-image big-illustration"
+      %h3.tile-title Map Data
+      %p See location data represented on maps.
+      %a.btn.btn-primary.btn-large.btn-block{:href => reports_map_path} See the Map
+  .span3
+    .tile
+      = image_tag "illustrations/infinity.png", :class => "tile-image big-illustration"
+      %h3.tile-title Charts
+      %p See your context on different charts (pie, line and more).
+      %a.btn.btn-primary.btn-large.btn-block{:href => reports_path} Select the Charts
+  .span3
+    .tile
+      = image_tag "illustrations/colors.png", :class => "tile-image big-illustration"
+      %h3.tile-title Experiments
+      %p See some more fringe visulisations.
+      %a.btn.btn-primary.btn-large.btn-block{:href => reports_sunburst_path} See the Experiments
+  .span3
+    .tile
+      = image_tag "illustrations/retina.png", :class => "tile-image big-illustration"
+      %h3.tile-title Clean Up
+      %p Improve the data in Avalytics for better results.
+      %a.btn.btn-primary.btn-large.btn-block{:href => records_to_clean_path} Get to it!
