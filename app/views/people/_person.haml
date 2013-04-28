@@ -1,20 +1,18 @@
 .title= @person.first_name + " " + @person.last_name
 %i.icon-user
-  %b=@person.grade
+%b=@person.job_title
+%br
+%i.icon-share-alt
+%b=@person.source
+%br
 %i.icon-map-marker
-  %b= @person.display_location
+%b= @person.display_location
 
 %hr
 
 %p
   %b Avature ID:
   = @person.avature_id
-  %br
-  %b First Name:
-  = @person.first_name
-  %br
-  %b Last Name:
-  = @person.last_name
   %br
   %b Gender:
   = @person.gender
@@ -34,12 +32,6 @@
   %b Graduate Questionaire Score:
   = @person.questionaire_score
   %br
-  %b Countries:
-  = @person.countries
-  %br
-  %b Cities:
-  = @person.cities
-  %br
   %b Step:
   = @person.step
   %br
@@ -51,11 +43,4 @@
   %br
   %b Attached Files and Forms:
   = @person.attached_files_and_forms
-  %br
-  %b Source:
-  = @person.source
-  %br
-  %b Job Title:
-  = @person.job_title
-  %br
 %hr

@@ -43,7 +43,7 @@ class Person
   end
 
   def display_location
-    self.countries.first + ", " + self.cities.first unless self.countries.empty?
+     self.cities.first + ", " + self.countries.first unless self.countries.empty?
   end
 
   def location_url
