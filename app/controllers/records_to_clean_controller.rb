@@ -1,7 +1,4 @@
 class RecordsToCleanController < ApplicationController
-  def index
-  end
-
   def strange_country_city_combos
     @people = Person.strange_country_city_combos
 
