@@ -82,3 +82,12 @@
 .icon-share-alt {
   background-position: 14px;
 }
+
+.homepage-tiles .tile {
+  width: 192px;
+  height: 312px;
+}
+
+.homepage-tiles .tile-content {
+  height: 270px
+}
