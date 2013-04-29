@@ -43,7 +43,7 @@ class Person
   end
 
   def display_location
-     self.cities.first + ", " + self.countries.first unless self.countries.empty?
+     "#{self.cities.first}, #{self.countries.first}" unless self.countries.empty?
   end
 
   def location_url
@@ -51,4 +51,13 @@ class Person
     address += self.cities.first unless self.cities.empty?
     "http://maps.googleapis.com/maps/api/geocode/xml?address=#{URI::encode(address)}&sensor=false"
   end
+
+  def hired?
+    self.step == "Hired"
+  end
+
+  def offered?
+    hired? || self.step == "Offer" || self.step == "Declined Offer"
+  end
+
 end
