@@ -20,6 +20,7 @@ gem 'twitter-bootstrap-rails'
 gem 'flatui-rails'
 gem 'therubyracer', :platforms => :ruby
 
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -34,8 +35,11 @@ end
 
 gem 'jquery-rails'
 
-group :development do
+group :development, :test do
   gem 'haml-rails', '= 0.3.5'
+  gem 'rspec-rails', '~> 2.0'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner'
 end
 
 # To use ActiveModel has_secure_password
