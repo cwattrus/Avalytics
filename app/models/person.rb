@@ -64,6 +64,6 @@ class Person
   def office_interviewed?
     offered? ||
     self.step.downcase == "office interview" ||
-    self.attached_files_and_forms.downcase =~ /(assessment scores|cultural interview|paired code interview|technical interview|management interview)/
+    !(self.attached_files_and_forms.downcase =~ /(assessment scores|cultural interview|paired code interview|technical interview|management interview)/).nil?
   end
 end
