@@ -115,4 +115,15 @@ describe Person do
       FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "foo, TPI Notes, bar").phone_screened?.should be_true
     end
   end
+
+  describe '#setup_past_states' do
+    ["hired", "offered", "office_interviewed", "code_reviewed", "phone_screened"].each do |attribute|
+      it "updates the #{attribute} field" do
+        person = FactoryGirl.build(:person)
+        person.send(attribute).should be_nil
+        person.setup_past_states
+        person.send(attribute).should_not be_nil
+      end
+    end
+  end
 end

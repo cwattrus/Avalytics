@@ -19,8 +19,9 @@ namespace :ingest do
           created_count += 1
           value[:avature_id] = key
           person = Person.new(value)
-          person.save()
         end
+        person.setup_past_states
+        person.save()
         people << person
       end
     end

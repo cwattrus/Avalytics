@@ -28,6 +28,11 @@ class Person
   field :female, type: Boolean
   field :race, type: String
   field :location, type: Array
+  field :hired, type: Boolean
+  field :offered, type: Boolean
+  field :office_interviewed, type: Boolean
+  field :code_reviewed, type: Boolean
+  field :phone_screened, type: Boolean
 
   scope :bad_country_city_combos, for_js("this.countries.length != 1 || (this.cities.length > this.countries.length)")
   scope :strange_country_city_combos, for_js("this.countries.length != 1 || (this.cities.length > this.countries.length) || this.location == null")
@@ -77,5 +82,13 @@ class Person
     code_reviewed? ||
     ["phone screen"].include?(self.step.downcase) ||
     !(self.attached_files_and_forms.downcase =~ /(tpi|phone screen)/).nil?
+  end
+
+  def setup_past_states
+    self.hired = hired?
+    self.offered = offered?
+    self.office_interviewed = office_interviewed?
+    self.code_reviewed = code_reviewed?
+    self.phone_screened = phone_screened?
   end
 end
