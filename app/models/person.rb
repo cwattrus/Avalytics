@@ -72,4 +72,10 @@ class Person
     ["technical assignment received", "technical assignment in review"].include?(self.step.downcase) ||
     !(self.attached_files_and_forms.downcase =~ /(assignment review)/).nil?
   end
+
+  def phone_screened?
+    code_reviewed? ||
+    ["phone screen"].include?(self.step.downcase) ||
+    !(self.attached_files_and_forms.downcase =~ /(tpi|phone screen)/).nil?
+  end
 end

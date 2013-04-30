@@ -81,7 +81,7 @@ describe Person do
   end
 
   describe '#code_reviewed?' do
-    it "is false if the status is not Office Interview or above, and doesnt have the appropriate forms filled out" do
+    it "is false if the status is not Technical Assignment Received or above, and doesnt have the appropriate forms filled out" do
       FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "").code_reviewed?.should be_false
     end
 
@@ -95,6 +95,24 @@ describe Person do
 
     it "is true if the attached files and forms has Assignment Review in it" do
       FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "foo, Assignment Review 1, bar").code_reviewed?.should be_true
+    end
+  end
+
+  describe '#phone_screened?' do
+    it "is false if the status is not Phone Screen or above, and doesnt have the appropriate forms filled out" do
+      FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "").phone_screened?.should be_false
+    end
+
+    it "is true if the status is Phone Screen" do
+      FactoryGirl.build(:person, step: "Phone Screen", attached_files_and_forms: "").phone_screened?.should be_true
+    end
+
+    it "is true if the attached files and forms has Phone Screen in it" do
+      FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "foo, Phone Screen, bar").phone_screened?.should be_true
+    end
+
+    it "is true if the attached files and forms has TPI in it" do
+      FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "foo, TPI Notes, bar").phone_screened?.should be_true
     end
   end
 end
