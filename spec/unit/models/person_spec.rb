@@ -28,55 +28,73 @@ describe Person do
 
   describe "#hired?" do
     it "is true when the status is Hired" do
-      FactoryGirl.build(:person, step: "Hired").should be_hired
+      FactoryGirl.build(:person, step: "Hired").hired?.should be_true
     end
 
     it "is false when the status is not Hired" do
-      FactoryGirl.build(:person, step: "Anything else").should_not be_hired
+      FactoryGirl.build(:person, step: "Anything else").hired?.should be_false
     end
   end
 
   describe "#offered?" do
     it "is false if the status is not Offer, Declined Offer, or Hired" do
-      FactoryGirl.build(:person, step: "Anything else").should_not be_offered
+      FactoryGirl.build(:person, step: "Anything else").offered?.should be_false
     end
 
     it "is true if the status is Offer" do
-      FactoryGirl.build(:person, step: "Offer").should be_offered
+      FactoryGirl.build(:person, step: "Offer").offered?.should be_true
     end
 
     it "is true if the status is Declined Offer" do
-      FactoryGirl.build(:person, step: "Declined Offer").should be_offered
+      FactoryGirl.build(:person, step: "Declined Offer").offered?.should be_true
     end
   end
 
   describe '#office_interviewed?' do
     it "is false if the status is not Office Interview or above, and doesnt have the appropriate forms filled out" do
-      FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "").should_not be_office_interviewed
+      FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "").office_interviewed?.should be_false
     end
 
     it "is true if the status is Office Interview" do
-      FactoryGirl.build(:person, step: "Office Interview", attached_files_and_forms: "").should be_office_interviewed
+      FactoryGirl.build(:person, step: "Office Interview", attached_files_and_forms: "").office_interviewed?.should be_true
     end
 
     it "is true if the attached files and forms has Assessment Scores in it" do
-      FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "foo, Assessment Scores, bar").should be_office_interviewed
+      FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "foo, Assessment Scores, bar").office_interviewed?.should be_true
     end
 
     it "is true if the attached files and forms has Cultural Interview in it" do
-      FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "foo, Cultural Interview Notes 1, bar").should be_office_interviewed
+      FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "foo, Cultural Interview Notes 1, bar").office_interviewed?.should be_true
     end
 
     it "is true if the attached files and forms has Paired Code Interview in it" do
-      FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "foo, Paired Code Interview Notes 1, bar").should be_office_interviewed
+      FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "foo, Paired Code Interview Notes 1, bar").office_interviewed?.should be_true
     end
 
     it "is true if the attached files and forms has Technical Interview in it" do
-      FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "foo, Technical Interview Notes 1, bar").should be_office_interviewed
+      FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "foo, Technical Interview Notes 1, bar").office_interviewed?.should be_true
     end
 
     it "is true if the attached files and forms has Management Interview in it" do
-      FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "foo, Management Interview, bar").should be_office_interviewed
+      FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "foo, Management Interview, bar").office_interviewed?.should be_true
+    end
+  end
+
+  describe '#code_reviewed?' do
+    it "is false if the status is not Office Interview or above, and doesnt have the appropriate forms filled out" do
+      FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "").code_reviewed?.should be_false
+    end
+
+    it "is true if the status is Technical Assignment Received" do
+      FactoryGirl.build(:person, step: "Technical Assignment Received", attached_files_and_forms: "").code_reviewed?.should be_true
+    end
+
+    it "is true if the status is Technical Assignment Reviewed" do
+      FactoryGirl.build(:person, step: "Technical Assignment in Review", attached_files_and_forms: "").code_reviewed?.should be_true
+    end
+
+    it "is true if the attached files and forms has Assignment Review in it" do
+      FactoryGirl.build(:person, step: "Anything else", attached_files_and_forms: "foo, Assignment Review 1, bar").code_reviewed?.should be_true
     end
   end
 end

@@ -66,4 +66,10 @@ class Person
     self.step.downcase == "office interview" ||
     !(self.attached_files_and_forms.downcase =~ /(assessment scores|cultural interview|paired code interview|technical interview|management interview)/).nil?
   end
+
+  def code_reviewed?
+    office_interviewed? ||
+    ["technical assignment received", "technical assignment in review"].include?(self.step.downcase) ||
+    !(self.attached_files_and_forms.downcase =~ /(assignment review)/).nil?
+  end
 end
