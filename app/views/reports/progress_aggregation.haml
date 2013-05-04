@@ -1,0 +1,62 @@
+.span12
+  %h1
+    Candidates by Progress
+  #chart{:style => "height: 600px;"}
+    %svg
+
+  :javascript
+    var data = [
+      {
+        "key": 'Candidates',
+        "color": '#2ca02c',
+        "values": [
+          {
+            "label": "Hired",
+            "value": parseInt("#{@hired_count}")
+          },
+          {
+            "label": "Offered",
+            "value": parseInt("#{@offered_count}")
+          },
+          {
+            "label": "Office Interviewed",
+            "value": parseInt("#{@office_interviewed_count}")
+          },
+          {
+            "label": "Code Reviewed",
+            "value": parseInt("#{@code_reviewed_count}")
+          },
+          {
+            "label": "Phone Screened",
+            "value": parseInt("#{@phone_screened_count}")
+          },
+          {
+            "label": "Total",
+            "value": parseInt("#{@total_count}")
+          },
+        ]
+      }
+    ];
+
+    nv.addGraph(function() {
+      var chart = nv.models.multiBarHorizontalChart()
+          .x(function(d) { return d.label })
+          .y(function(d) { return d.value })
+          .margin({top: 30, right: 20, bottom: 50, left: 175})
+          .showValues(true)
+          .tooltips(false)
+          .showControls(false)
+          .showLegend(false);
+
+      chart.yAxis
+          .tickFormat(d3.format(',.0'));
+
+      d3.select('#chart svg')
+          .datum(data)
+        .transition().duration(500)
+          .call(chart);
+
+      nv.utils.windowResize(chart.update);
+
+      return chart;
+    });

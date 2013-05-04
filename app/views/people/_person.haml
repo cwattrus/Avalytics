@@ -2,20 +2,7 @@
 
 .row
   .span9.pull-right
-    %ol.progress-tracker
-      - incomplete_step_class = "progress-tracker-todo"
-      - incomplete_step_class = "progress-tracker-hold" if @person.step == "Hold"
-      - incomplete_step_class = "progress-tracker-rejected" if @person.step == "Rejected"
-      %li{:class => @person.phone_screened? ? "progress-tracker-done" : incomplete_step_class}
-        Phone Screen
-      %li{:class => @person.code_reviewed? ? "progress-tracker-done" : incomplete_step_class}
-        Code Review
-      %li{:class => @person.office_interviewed? ? "progress-tracker-done" : incomplete_step_class}
-        Office Interview
-      %li{:class => @person.offered? ? "progress-tracker-done" : incomplete_step_class}
-        Offer
-      %li{:class => @person.hired? ? "progress-tracker-done" : incomplete_step_class}
-        Hire
+    = render "progress_tracker/progress_tracker", :person => @person
   .span3
     %i.icon-user
     %b=@person.job_title
