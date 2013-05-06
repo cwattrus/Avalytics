@@ -1,32 +1,30 @@
 .login
   .login-screen
     %center
-      .login-icon
-        = image_tag "illustrations/colors.png", alt: "Welcome to Avalytics"
-        %h4
-          Welcome to
-          %small
-            Avalytics
-
-      .login-form{style:"width:310px"}
-        = form_for resource, :as => resource_name, :url => session_path(resource_name), :html => {autocomplete: "off"} do |f|
-          .control-group
-            = f.email_field :email, autofocus: true, :class => "login-field", placeholder: "Email Address"
-            .login-field-icon.fui-man-16
-
-          .control-group
-            = f.password_field :password, :class => "login-field", placeholder: "Password"
-            .login-field-icon.fui-lock-16
-
-          - if devise_mapping.rememberable?
+      = image_tag "login_logo.png", alt: "Welcome to Avalytics", :class => "login-logo"
+    
+    .login-form{style:"width:500px; margin: 50px auto 0px auto"}
+      = form_for resource, :as => resource_name, :url => session_path(resource_name), :html => {autocomplete: "off"} do |f|
+        .row-fluid
+          .span6
             .control-group
+              = f.email_field :email, autofocus: true, :class => "login-field", placeholder: "Email Address"
+              .login-field-icon.fui-man-16
+
+            - if devise_mapping.rememberable?
               = f.label :remember_me, :class => "checkbox" do
                 %span.icon
                 %span.icon-to-fade
                 = f.check_box :remember_me
                 I'll be back!
 
-          %button{:class => "btn btn-primary btn-large btn-block", name: "commit", type: "submit"}
-            Login
+          .span6
+            .control-group
+              = f.password_field :password, :class => "login-field", placeholder: "Password"
+              .login-field-icon.fui-lock-16
 
-        = render "devise/shared/links"
+            = render "devise/shared/links"
+
+        %button{:class => "btn btn-large btn-block", name: "commit", type: "submit"}
+          Login
+

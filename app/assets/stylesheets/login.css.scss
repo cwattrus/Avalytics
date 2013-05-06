@@ -1,0 +1,57 @@
+.login {
+  background: none;
+  padding: 0;
+  margin: 0;
+}
+
+.login-screen {
+  background: none;
+  padding: 0 0 162px;
+  min-height: 0px;
+  margin-top: 100px;
+}
+
+.login-logo {
+  width: 350px;
+}
+
+.login-icon {
+  position: relative;
+  left: -225px;
+}
+
+.login-form {
+  background-color: #f4f4f3;
+  color: gray;
+  left: 50px;
+  position: inherit;
+}
+
+.login-form .login-field {
+  padding-right: 30px;
+  width:81%;
+}
+
+.login-form .login-field:hover {
+  border-color: #a5a5a5;
+}
+.login-form .login-field:focus + .login-field-icon {
+  color: #a5a5a5;
+}
+.login-form .login-field:focus {
+  color: #a5a5a5;
+}
+
+a:hover,a:focus{color: #1abc9c; text-decoration: underline;}
+
+.checkbox {
+  text-align: left;
+}
+
+a {
+  color: #d86a40;
+}
+
+.btn {
+  background-color: #686868;
+}
