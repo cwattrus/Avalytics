@@ -27,6 +27,11 @@
   position: inherit;
 }
 
+.checkbox:hover,
+.radio:hover {
+  color: #d86a40;
+}
+
 .login-form .login-field {
   padding-right: 30px;
   width:81%;
@@ -42,15 +47,28 @@
   color: #a5a5a5;
 }
 
-a:hover,a:focus{color: #1abc9c; text-decoration: underline;}
+.alert-error {
+  margin-top: 20px;
+  background-color: #d86a40;
+  border: dashed 1px #a5a5a5;
+  color: #753820;
+}
+
+.alert-success {
+  margin-top: 20px;
+  background-color: #add140;
+  border: dashed 1px #a5a5a5;
+}
 
 .checkbox {
   text-align: left;
 }
 
 a {
-  color: #d86a40;
+  color: #a5a5a5;
 }
+
+a:hover,a:focus{color: #d86a40; text-decoration: underline;}
 
 .btn {
   background-color: #686868;

@@ -13,11 +13,71 @@
  *= require_tree .
  *= require_self
  */
+.btn-toolbar .btn.active {
+  color: gray;
+}
 
+.top-menu {
+  position: fixed;
+  background: url(bg.jpg);
+  width: 1000px;
+  top: 0px;
+  z-index: 999;
+   -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+  -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+  box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
+}
+
+h3 {
+  color: gray;
+  font-size: 14pt;
+  text-shadow: 0 1px 0 #666;
+}
+
+.table-bordered {
+  border: dashed #a5a5a5 1px;
+  border-radius: 0px;
+}
+.table-bordered .heading {
+  background-color: transparent;  
+}
+
+.menu {
+  background-color: #e7e5e0;
+}
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+  color: #a5a5a5;
+}
+
+.framed {
+  border: dashed 1px #a5a5a5;
+}
+
+.checkbox .icon {
+  background-image: url("/assets/checkbox-2x-brown.png");
+  background-size: 110px 110px;
+}
+
+.app-logo {
+  width: 392px;
+  height: 40px;
+}
+
+.btn-group .btn {
+  background-color: transparent;
+  background: none;
+  color: gray;
+  text-shadow: 0 1px 0 #a5a5a5;
+  font-size: 11pt;
+}
 
 body {
   background-color: #e7e5e0;
   background-image: url(bg.jpg);
+  padding-top: 60px;
 }
 
 .no-link-style, .no-link-style:hover {
@@ -59,13 +119,11 @@ body {
 
 #map-container {
   padding: 6px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: #ccc #ccc #999 #ccc;
   -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
   -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
   box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
   width: 920px;
+  margin-top: 20px;
 }
 
 #map {
@@ -89,9 +147,23 @@ body {
   background-position: 14px;
 }
 
+.homepage-tiles {
+  -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+  -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+  box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
+  width: 1000px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
 .homepage-tiles .tile {
   width: 192px;
   height: 312px;
+  border: dashed 1px #a5a5a5;
+  border-radius: 0px;
+  background: url(bg.jpg);
+  
 }
 
 .homepage-tiles .tile-content {

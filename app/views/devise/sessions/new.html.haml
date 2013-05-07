@@ -4,7 +4,7 @@
       = image_tag "login_logo.png", alt: "Welcome to Avalytics", :class => "login-logo"
     
     .login-form{style:"width:500px; margin: 50px auto 0px auto"}
-      = form_for resource, :as => resource_name, :url => session_path(resource_name), :html => {autocomplete: "off"} do |f|
+      = form_for resource, :as => resource_name, :url => session_path(resource_name) do |f|
         .row-fluid
           .span6
             .control-group
@@ -16,7 +16,8 @@
                 %span.icon
                 %span.icon-to-fade
                 = f.check_box :remember_me
-                I'll be back!
+                .checkbox-label
+                  I'll be back!
 
           .span6
             .control-group
