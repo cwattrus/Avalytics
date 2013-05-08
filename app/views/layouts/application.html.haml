@@ -30,7 +30,7 @@
           .span7
             .btn-toolbar.panel.pull-right
               .btn-group
-                %a.btn{:onclick => "$('#menu').slideToggle(500)", :id => "menuBtn"} 
+                %a.btn#menu-btn
                   %i.fui-cmd-16
                   Visulisations
                 %a.btn{:href => people_path}

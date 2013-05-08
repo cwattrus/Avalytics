@@ -16,3 +16,7 @@
 //= require d3.v3
 //= require flat-ui
 //= require_tree .
+
+$(function(){
+  $("#menu-btn").click(function(){$('#menu').slideToggle(500)});
+});
