@@ -20,7 +20,7 @@
 .top-menu {
   position: fixed;
   background: url(bg.jpg);
-  width: 1000px;
+  width: 980px;
   top: 0px;
   z-index: 999;
    -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
@@ -39,7 +39,7 @@ h3 {
   border-radius: 0px;
 }
 .table-bordered .heading {
-  background-color: transparent;  
+  background-color: transparent;
 }
 
 .menu {
@@ -151,7 +151,7 @@ body {
   -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
   -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
   box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
-  width: 1000px;
+  width: 980px;
   padding-top: 20px;
   padding-bottom: 20px;
   margin-bottom: 20px;
@@ -163,7 +163,7 @@ body {
   border: dashed 1px #a5a5a5;
   border-radius: 0px;
   background: url(bg.jpg);
-  
+
 }
 
 .homepage-tiles .tile-content {
