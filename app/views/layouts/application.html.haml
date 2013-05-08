@@ -23,11 +23,11 @@
     .container
       - if user_signed_in?
         .row.top-menu
-          .span12
-            .pull-left
-              %h1
-                %a.no-link-style{:href => "/"}
-                  = image_tag "app_logo.png", alt: "Welcome to Avalytics", :class => "app-logo"
+          .span5
+            %h1
+              %a.no-link-style{:href => "/"}
+                = image_tag "app_logo.png", alt: "Welcome to Avalytics", :class => "app-logo"
+          .span7
             .btn-toolbar.panel.pull-right
               .btn-group
                 %a.btn{:onclick => "$('#menu').slideToggle(500)", :id => "menuBtn"} 
