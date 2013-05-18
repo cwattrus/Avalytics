@@ -30,7 +30,7 @@
 
 .filter-container.pull-bottom
   %form{method: "get"}
-    = select_tag :by_step, options_for_select([nil] + people.map(&:step).uniq, params[:by_step])
-    = select_tag :by_source, options_for_select([nil] + people.map(&:source).uniq, params[:by_source])
-    = select_tag :by_job_title, options_for_select([nil] + people.map(&:job_title).uniq, params[:by_job_title])
+    = select_tag :by_step, options_for_select([["All Steps",nil]] + people.map(&:step).uniq, params[:by_step]), multiple: true
+    = select_tag :by_source, options_for_select([["All Sources", nil]] + people.map(&:source).uniq, params[:by_source]), multiple: true
+    = select_tag :by_job_title, options_for_select([["All Job Titles",nil]] + people.map(&:job_title).uniq, params[:by_job_title]), multiple: true
     %input{type: "submit", value: "Go!"}
