@@ -1,8 +1,8 @@
 class PeopleController < ApplicationController
   before_filter :authenticate_user!
-  has_scope :by_step
-  has_scope :by_source
-  has_scope :by_job_title
+  has_scope :by_step, type: :array
+  has_scope :by_source, type: :array
+  has_scope :by_job_title, type: :array
 
   # GET /people
   # GET /people.json

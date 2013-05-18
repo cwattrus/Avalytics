@@ -1,7 +1,7 @@
 class RecordsToCleanController < ApplicationController
-  has_scope :by_step
-  has_scope :by_source
-  has_scope :by_job_title
+  has_scope :by_step, type: :array
+  has_scope :by_source, type: :array
+  has_scope :by_job_title, type: :array
 
   def strange_country_city_combos
     @people = apply_scopes(Person).strange_country_city_combos
