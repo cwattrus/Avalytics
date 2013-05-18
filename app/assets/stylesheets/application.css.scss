@@ -9,7 +9,6 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require bootstrap_and_overrides
- *= require flat-ui
  *= require_tree .
  *= require_self
  */
@@ -194,11 +193,11 @@ h3 {
 }
 
 .btn-toolbar .btn:hover {
-  background-color: transparent; 
+  background-color: transparent;
 }
 
 .btn:hover {
-  background-color: #a5a5a5; 
+  background-color: #a5a5a5;
 }
 
 .dropdown-menu li:hover,
