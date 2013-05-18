@@ -1,0 +1,17 @@
+.container
+  .row
+    .span1
+      .lead.pull-right
+        Filters:
+    .span8
+      .dropdown
+        %a.btn.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+          Select a job title to filter
+        %ul.dropdown-menu{:role => "menu", "aria-labelledby" => "dLabel"}
+          %li
+            %a.job{:href => "#", :tabindex => "-1", :onClick => "update_pie_chart(base_url, selector)"}
+              All jobs
+          - job_lists.each do |job_list|
+            %li
+              %a.job{:href => "#", :tabindex => "-1", :onClick => "update_pie_chart(base_url+'?job_title=#{job_list.job_title}', selector)"}
+                = job_list.job_title
