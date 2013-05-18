@@ -13,8 +13,11 @@
  *= require_tree .
  *= require_self
  */
-.btn-toolbar .btn.active {
-  color: gray;
+
+body {
+  background-color: #e7e5e0;
+  background-image: url(bg.jpg);
+  padding-top: 60px;
 }
 
 .top-menu {
@@ -28,39 +31,8 @@
   box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
 }
 
-h3 {
-  color: gray;
-  font-size: 14pt;
-  text-shadow: 0 1px 0 #666;
-}
-
-.table-bordered {
-  border: dashed #a5a5a5 1px;
-  border-radius: 0px;
-
-  .heading {
-    background-color: transparent;
-  }
-}
-
-
-.menu {
-  background-color: #e7e5e0;
-}
-
-.footer {
-  margin-top: 20px;
-  text-align: center;
-  color: #a5a5a5;
-}
-
-.framed {
-  border: dashed 1px #a5a5a5;
-}
-
-.checkbox .icon {
-  background-image: url("/assets/checkbox-2x-brown.png");
-  background-size: 110px 110px;
+.heading {
+  background-color: #abe9ac;
 }
 
 .app-logo {
@@ -68,38 +40,8 @@ h3 {
   height: 40px;
 }
 
-.btn-group .btn {
-  background-color: transparent;
-  background: none;
-  color: gray;
-  text-shadow: 0 1px 0 #a5a5a5;
-  font-size: 11pt;
-}
-
-body {
+.menu {
   background-color: #e7e5e0;
-  background-image: url(bg.jpg);
-  padding-top: 60px;
-}
-
-.no-link-style, .no-link-style:hover {
-  color: inherit;
-  text-decoration: inherit;
-}
-
-.small {
-	font-size: small;
-}
-
-.heading {
-	background-color: #abe9ac;
-}
-
-.title {
-	margin-bottom: 0px;
-	font-size: 21px;
-	font-weight: 200;
-	line-height: 30px;
 }
 
 .avalytics-navbar-inner {
@@ -118,6 +60,55 @@ body {
      -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
           box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
 }
+
+.homepage-tiles {
+  -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+  -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
+  box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
+  width: 980px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+
+  .tile {
+    width: 192px;
+    height: 312px;
+    border: dashed 1px #a5a5a5;
+    border-radius: 0px;
+    background: url(bg.jpg);
+  }
+
+  .tile-content {
+    height: 270px
+  }
+}
+
+.footer {
+  margin-top: 20px;
+  text-align: center;
+  color: #a5a5a5;
+}
+
+.framed {
+  border: dashed 1px #a5a5a5;
+}
+
+
+/* Buttons */
+
+.btn-group .btn {
+  background-color: transparent;
+  background: none;
+  color: gray;
+  text-shadow: 0 1px 0 #a5a5a5;
+  font-size: 11pt;
+}
+
+.btn-toolbar .btn.active {
+  color: gray;
+}
+
+/* Data */
 
 #map-container {
   padding: 6px;
@@ -141,25 +132,45 @@ body {
   background-position: 14px;
 }
 
+.table-bordered {
+  border: dashed #a5a5a5 1px;
+  border-radius: 0px;
 
-.homepage-tiles {
-  -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
-  -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
-  box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
-  width: 980px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
-
-  .tile {
-    width: 192px;
-    height: 312px;
-    border: dashed 1px #a5a5a5;
-    border-radius: 0px;
-    background: url(bg.jpg);
+  .heading {
+    background-color: transparent;
   }
+}
 
-  .tile-content {
-    height: 270px
-  }
+/* Typography
+
+h1, h2, h3, h4 {
+  color: gray;
+  text-shadow: 0 1px 0 #666;
+}
+
+h3 {
+  font-size: 14pt;
+}
+
+.small {
+  font-size: small;
+}
+
+.title {
+  margin-bottom: 0px;
+  font-size: 21px;
+  font-weight: 200;
+  line-height: 30px;
+}
+
+.no-link-style, .no-link-style:hover {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+/* Forms */
+
+.checkbox .icon {
+  background-image: url("/assets/checkbox-2x-brown.png");
+  background-size: 110px 110px;
 }
