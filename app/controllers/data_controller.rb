@@ -41,9 +41,7 @@ class DataController < ApplicationController
       end
     }
 
-    respond_to do |format|
-      format.json { render json: @jobs_with_grades_and_steps}
-    end
+    render json: @jobs_with_grades_and_steps
   end
 
   def jobs_with_grades_with_steps_sunburst
@@ -77,9 +75,7 @@ class DataController < ApplicationController
       }
     end
 
-    respond_to do |format|
-      format.json { render json: @jobs_with_grades_and_steps}
-    end
+    render json: @jobs_with_grades_and_steps
   end
 
   def gender_pie
@@ -113,9 +109,7 @@ class DataController < ApplicationController
       }
     ]
 
-    respond_to do |format|
-      format.json { render json: @genders}
-    end
+    render json: @genders
   end
 
   def race_pie
@@ -140,8 +134,6 @@ class DataController < ApplicationController
       }
     ]
 
-    respond_to do |format|
-      format.json { render json: @races}
-    end
+    render json: @races
   end
 end

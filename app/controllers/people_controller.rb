@@ -1,9 +1,13 @@
 class PeopleController < ApplicationController
   before_filter :authenticate_user!
+  has_scope :by_step
+  has_scope :by_source
+  has_scope :by_job_title
+
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @people = apply_scopes(Person).all
 
     respond_to do |format|
       format.html # index.html.erb
