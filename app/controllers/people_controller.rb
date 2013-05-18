@@ -8,7 +8,7 @@ class PeopleController < ApplicationController
   # GET /people.json
   def index
     @people = apply_scopes(Person).all
-    @people_filter = PeopleFilter.new(by_step: params[:by_step], by_source: params[:by_source], by_job_title: params[:by_job_title])
+    @people_filter_presenter = PeopleFilterPresenter.new
 
     respond_to do |format|
       format.html # index.html.erb

@@ -5,7 +5,7 @@ class RecordsToCleanController < ApplicationController
 
   def strange_country_city_combos
     @people = apply_scopes(Person).strange_country_city_combos
-    @people_filter = PeopleFilter.new(by_step: params[:by_step], by_source: params[:by_source], by_job_title: params[:by_job_title])
+    @people_filter_presenter = PeopleFilterPresenter.new
 
     respond_to do |format|
       format.html

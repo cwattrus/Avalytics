@@ -29,21 +29,22 @@
 %br
 
 #filters.filter-container.pull-bottom
-  .row-fluid 
+  .row-fluid
     %form{method: "get"}
       .span2
-        .lead 
+        .lead
           Filters
         Select any number of options to filter. Click apply to filter.
       .span3
         = label_tag :by_step, "Step"
-        = select_tag :by_step, options_for_select(people.map(&:step).uniq, params[:by_step]), multiple: true
+        = select_tag :by_step, options_for_select(people_filter_presenter.step_options, params[:by_step]), multiple: true
       .span3
         = label_tag :by_source, "Source"
-        = select_tag :by_source, options_for_select(people.map(&:source).uniq, params[:by_source]), multiple: true
+        = select_tag :by_source, options_for_select(people_filter_presenter.source_options, params[:by_source]), multiple: true
       .span3
         = label_tag :by_job_title, "Job Title"
-        = select_tag :by_job_title, options_for_select(people.map(&:job_title).uniq, params[:by_job_title]), multiple: true
+        = select_tag :by_job_title, options_for_select(people_filter_presenter.job_title_options, params[:by_job_title]), multiple: true
       .span1
         %button.btn.btn-success{type: "submit"}
           Apply Filter
+
