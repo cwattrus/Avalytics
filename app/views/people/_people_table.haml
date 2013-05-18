@@ -24,8 +24,8 @@
       %td.small= person.source
       %td.small= person.job_title
       %td
-        = link_to 'Show', person, :class => "btn fui-eye-24"
-        = link_to ' ', "https://jobs.thoughtworks.com/#Person/#{person.avature_id}", :class => "btn btn-small icon-share-alt" , :target => "_blank", :title => "Click to view in Avature"
+        = link_to 'Show', person, :class => "btn btn-primary fui-eye-24"
+        = link_to ' ', "https://jobs.thoughtworks.com/#Person/#{person.avature_id}", :class => "btn btn-info btn-small icon-share-alt" , :target => "_blank", :title => "Click to view in Avature"
 %br
 
 #filters.filter-container.pull-bottom
@@ -44,4 +44,6 @@
       .span3
         = label_tag :by_job_title, "Job Title"
         = select_tag :by_job_title, options_for_select(people.map(&:job_title).uniq, params[:by_job_title]), multiple: true
-      %input.btn.btn-success{type: "submit", value: "Apply Filter"}
+      .span1
+        %button.btn.btn-success{type: "submit"}
+          Apply Filter

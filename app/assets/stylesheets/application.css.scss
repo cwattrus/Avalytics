@@ -124,6 +124,31 @@ body {
 
 /* Buttons */
 
+.btn {
+  border: none;
+  color: white;
+  font-size: 16.5px;
+  text-decoration: none;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+  -webkit-backface-visibility: hidden;
+}
+
+.btn-primary {
+  background: gray;
+
+  &:hover {
+    background: black;
+  }
+
+}
+
 .nav-container .btn {
   background-color: transparent;
   background: none;
@@ -214,3 +239,27 @@ h3 {
   content: "";
   line-height: 0;
 }
+
+
+.alert-error {
+  margin-top: 20px;
+  background-color: #d86a40;
+  border: dashed 1px #a5a5a5;
+  color: #753820;
+}
+
+.alert-success {
+  margin-top: 20px;
+  background-color: #add140;
+  border: dashed 1px #a5a5a5;
+}
+
+.checkbox {
+  text-align: left;
+}
+
+a {
+  color: #a5a5a5;
+}
+
+a:hover,a:focus{color: #d86a40; text-decoration: underline;}
