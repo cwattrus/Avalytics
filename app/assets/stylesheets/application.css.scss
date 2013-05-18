@@ -192,3 +192,26 @@ h3 {
 #user_password:focus {
   border-color: #a5a5a5;
 }
+
+.btn-toolbar .btn:hover {
+  background-color: transparent; 
+}
+
+.btn:hover {
+  background-color: #a5a5a5; 
+}
+
+.dropdown-menu li:hover,
+.dropdown-menu li:focus,
+.dropdown-submenu:hover > a {
+  text-decoration: none;
+  color: white;
+  background-color: #a5a5a5;
+  background-image: -moz-linear-gradient(top, #0088cc, #0077b3);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0077b3));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0077b3);
+  background-image: -o-linear-gradient(top, #0088cc, #0077b3);
+  background-image: linear-gradient(to bottom, #0088cc, #0077b3);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF0088CC', endColorstr='#FF0077B3', GradientType=0);
+}
