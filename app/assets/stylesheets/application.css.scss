@@ -182,3 +182,13 @@ h3 {
   background-image: url("/assets/checkbox-2x-brown.png");
   background-size: 110px 110px;
 }
+
+/* Overrides Flat or Bootstrap */
+
+#user_email:focus {
+  border-color: #a5a5a5;
+}
+
+#user_password:focus {
+  border-color: #a5a5a5;
+}
