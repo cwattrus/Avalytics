@@ -24,16 +24,24 @@
       %td.small= person.source
       %td.small= person.job_title
       %td
-        = link_to ' ', person, :class => "btn fui-eye-24"
+        = link_to 'Show', person, :class => "btn fui-eye-24"
         = link_to ' ', "https://jobs.thoughtworks.com/#Person/#{person.avature_id}", :class => "btn btn-small icon-share-alt" , :target => "_blank", :title => "Click to view in Avature"
 %br
 
 #filters.filter-container.pull-bottom
-  %form{method: "get"}
-    = label_tag :by_step, "Step"
-    = select_tag :by_step, options_for_select(people.map(&:step).uniq, params[:by_step]), multiple: true
-    = label_tag :by_source, "Source"
-    = select_tag :by_source, options_for_select(people.map(&:source).uniq, params[:by_source]), multiple: true
-    = label_tag :by_job_title, "Job Title"
-    = select_tag :by_job_title, options_for_select(people.map(&:job_title).uniq, params[:by_job_title]), multiple: true
-    %input{type: "submit", value: "Go!"}
+  .row-fluid 
+    %form{method: "get"}
+      .span2
+        .lead 
+          Filters
+        Select any number of options to filter. Click apply to filter.
+      .span3
+        = label_tag :by_step, "Step"
+        = select_tag :by_step, options_for_select(people.map(&:step).uniq, params[:by_step]), multiple: true
+      .span3
+        = label_tag :by_source, "Source"
+        = select_tag :by_source, options_for_select(people.map(&:source).uniq, params[:by_source]), multiple: true
+      .span3
+        = label_tag :by_job_title, "Job Title"
+        = select_tag :by_job_title, options_for_select(people.map(&:job_title).uniq, params[:by_job_title]), multiple: true
+      %input.btn.btn-success{type: "submit", value: "Apply Filter"}

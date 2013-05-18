@@ -22,14 +22,14 @@
   %body
     .container
       - if user_signed_in?
-        .row.nav-container.pull-top
-          .span5
-            %h1
-              %a.no-link-style{:href => "/"}
-                = image_tag "app_logo.png", alt: "Welcome to Avalytics", :class => "app-logo"
-          .span7
-            .btn-toolbar.panel.pull-right
-              .btn-group
+        .nav-container.pull-top
+          .row-fluid
+            .span5
+              %h1
+                %a.no-link-style{:href => "/"}
+                  = image_tag "app_logo.png", alt: "Welcome to Avalytics", :class => "app-logo"
+            .span7
+              .pull-right
                 %a.btn#menu-btn
                   %i.fui-cmd-16
                   Visulisations
@@ -48,7 +48,8 @@
       .row
         .span12
           = bootstrap_flash
-      #menu.row.homepage-tiles.hide
+      
+      #menu.row-fluid.homepage-tiles.hide
         .span3
           .tile
             .tile-content
