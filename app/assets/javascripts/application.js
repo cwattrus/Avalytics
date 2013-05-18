@@ -18,4 +18,6 @@
 
 $(function(){
   $("#menu-btn").click(function(){$('#menu').slideToggle(500)});
+  $(".filter-container").click(function(){$('#filters').css('height', '300px')});
 });
+

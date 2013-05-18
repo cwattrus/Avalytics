@@ -28,7 +28,7 @@
         = link_to ' ', "https://jobs.thoughtworks.com/#Person/#{person.avature_id}", :class => "btn btn-small icon-share-alt" , :target => "_blank", :title => "Click to view in Avature"
 %br
 
-.filter-container.pull-bottom
+#filters.filter-container.pull-bottom
   %form{method: "get"}
     = select_tag :by_step, options_for_select(people.map(&:step).uniq, params[:by_step]), multiple: true, prompt: "All Steps"
     = select_tag :by_source, options_for_select(people.map(&:source).uniq, params[:by_source]), multiple: true, prompt: "All Sources"

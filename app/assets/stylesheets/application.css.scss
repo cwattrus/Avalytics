@@ -91,7 +91,7 @@ body {
   bottom: 0px;
 }
 
-.nav-container, .filter-container {
+.nav-container {
   background: url(bg.jpg);
   width: 980px;
   z-index: 999;
@@ -100,6 +100,17 @@ body {
   box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
 }
 
+.filter-container {
+  background: url(bg.jpg);
+  width: 960px;
+  padding: 10px 10px 0px 15px;
+  margin-left: -20px;
+  height: 40px;
+  z-index: 999;
+   -webkit-box-shadow: rgba(64, 64, 64, 0.7) 0 2px 5px;
+  -moz-box-shadow: rgba(64, 64, 64, 0.7) 0 2px 5px;
+  box-shadow: rgba(64, 64, 64, 0.7) 0 2px 5px;
+}
 
 /* Buttons */
 
@@ -213,4 +224,17 @@ h3 {
   background-image: linear-gradient(to bottom, #0088cc, #0077b3);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#FF0088CC', endColorstr='#FF0077B3', GradientType=0);
+}
+
+.dk_options_inner {
+  background-color: rgb(128, 128, 128);
+  border-radius: 5px;
+  margin: 0;
+  max-height: 244px;
+  padding: 3px 3px 0;
+}
+
+.dk_options:before {
+  left: 5px;
+  right: 12px;
 }
