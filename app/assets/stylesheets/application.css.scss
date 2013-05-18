@@ -37,10 +37,12 @@ h3 {
 .table-bordered {
   border: dashed #a5a5a5 1px;
   border-radius: 0px;
+
+  .heading {
+    background-color: transparent;
+  }
 }
-.table-bordered .heading {
-  background-color: transparent;
-}
+
 
 .menu {
   background-color: #e7e5e0;
@@ -135,17 +137,10 @@ body {
   max-width: none;
 }
 
-.icon-map-marker {
+.icon-map-marker, .icon-user, .icon-share-alt {
   background-position: 14px;
 }
 
-.icon-user {
-  background-position: 14px;
-}
-
-.icon-share-alt {
-  background-position: 14px;
-}
 
 .homepage-tiles {
   -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
@@ -155,17 +150,16 @@ body {
   padding-top: 20px;
   padding-bottom: 20px;
   margin-bottom: 20px;
-}
 
-.homepage-tiles .tile {
-  width: 192px;
-  height: 312px;
-  border: dashed 1px #a5a5a5;
-  border-radius: 0px;
-  background: url(bg.jpg);
+  .tile {
+    width: 192px;
+    height: 312px;
+    border: dashed 1px #a5a5a5;
+    border-radius: 0px;
+    background: url(bg.jpg);
+  }
 
-}
-
-.homepage-tiles .tile-content {
-  height: 270px
+  .tile-content {
+    height: 270px
+  }
 }

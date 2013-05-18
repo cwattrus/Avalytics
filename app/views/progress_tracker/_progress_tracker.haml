@@ -1,14 +1,11 @@
 %ol.progress-tracker
-  - incomplete_step_class = "progress-tracker-todo"
-  - incomplete_step_class = "progress-tracker-hold" if person.step == "Hold"
-  - incomplete_step_class = "progress-tracker-rejected" if person.step == "Rejected"
-  %li{:class => person.phone_screened? ? "progress-tracker-done" : incomplete_step_class}
+  %li{:class => progress_tracker_class(person, :phone_screened)}
     Phone Screen
-  %li{:class => person.code_reviewed? ? "progress-tracker-done" : incomplete_step_class}
+  %li{:class => progress_tracker_class(person, :code_reviewed)}
     Code Review
-  %li{:class => person.office_interviewed? ? "progress-tracker-done" : incomplete_step_class}
+  %li{:class => progress_tracker_class(person, :office_interviewed)}
     Office Interview
-  %li{:class => person.offered? ? "progress-tracker-done" : incomplete_step_class}
+  %li{:class => progress_tracker_class(person, :offered)}
     Offer
-  %li{:class => person.hired? ? "progress-tracker-done" : incomplete_step_class}
+  %li{:class => progress_tracker_class(person, :hired)}
     Hire
