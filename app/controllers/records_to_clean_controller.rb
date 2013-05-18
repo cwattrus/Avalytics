@@ -1,6 +1,10 @@
 class RecordsToCleanController < ApplicationController
+  has_scope :by_step
+  has_scope :by_source
+  has_scope :by_job_title
+
   def strange_country_city_combos
-    @people = Person.strange_country_city_combos
+    @people = apply_scopes(Person).strange_country_city_combos
 
     respond_to do |format|
       format.html
