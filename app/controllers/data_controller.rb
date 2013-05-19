@@ -1,13 +1,13 @@
 class DataController < ApplicationController
   def progress_aggregation_horizontal_bar
     all_people = Person.all
-    people_label_value_pairs = []
-    people_label_value_pairs << ["Hired", all_people.where(:hired => true).count()]
-    people_label_value_pairs << ["Offered", all_people.where(:offered => true).count()]
-    people_label_value_pairs << ["Office Interviewed", all_people.where(:office_interviewed => true).count()]
-    people_label_value_pairs << ["Code Reviewed", all_people.where(:code_reviewed => true).count()]
-    people_label_value_pairs << ["Phone Screened", all_people.where(:phone_screened => true).count()]
-    people_label_value_pairs << ["Total", all_people.count()]
+    people_label_value_pairs = {}
+    people_label_value_pairs["Hired"] = all_people.where(:hired => true).count()
+    people_label_value_pairs["Offered"] = all_people.where(:offered => true).count()
+    people_label_value_pairs["Office Interviewed"] = all_people.where(:office_interviewed => true).count()
+    people_label_value_pairs["Code Reviewed"] = all_people.where(:code_reviewed => true).count()
+    people_label_value_pairs["Phone Screened"] = all_people.where(:phone_screened => true).count()
+    people_label_value_pairs["Total"] = all_people.count()
 
     render json: horizontal_bar(people_label_value_pairs)
   end
@@ -88,11 +88,11 @@ class DataController < ApplicationController
   end
 
   def gender_pie
-    render json: pie({"Female" => true, "Male" => false}, :female)
+    render json: pie({"Unknown" => nil, "Female" => true, "Male" => false}, :female)
   end
 
   def race_pie
-    race_labels = {}
+    race_labels = {"Unknown" => nil}
     Person::RACES.each {|race| race_labels[race] = race}
     render json: pie(race_labels, :race)
   end
@@ -105,10 +105,7 @@ class DataController < ApplicationController
     [
       {
         :key => "Pie Data",
-        :values => [{
-          :label => "Unknown",
-          :value => job_title ? Person.where(:job_title => job_title, attribute => nil).count : Person.where(attribute => nil).count
-        }] + label_to_value_pairs.map do |label, value|
+        :values => label_to_value_pairs.map do |label, value|
           {
             :label => label,
             :value => job_title ? Person.where(:job_title => job_title, attribute => value).count : Person.where(attribute => value).count
@@ -123,9 +120,9 @@ class DataController < ApplicationController
       {
         "key" => 'Horizontal Bar Data',
         "color" => '#2ca02c',
-        "values" => label_value_pairs.map do |label_and_values|
-          { "label" => label_and_values[0],
-            "value" => label_and_values[1]}
+        "values" => label_value_pairs.map do |label, value|
+          { "label" => label,
+            "value" => value}
         end
       }
     ]
