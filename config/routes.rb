@@ -6,28 +6,27 @@ Avalytics::Application.routes.draw do
     end
 
   resources :job_lists
-
   resources :people, :only => [:index, :show]
 
-  match 'reports/progress_aggregation' => 'reports#progress_aggregation'
-  match 'reports/sunburst' => 'reports#sunburst'
-  match 'reports/bubbles' => 'reports#bubbles'
-  match 'reports/genders' => 'reports#genders'
-  match 'reports/races' => 'reports#races'
-  match 'reports/map' => 'reports#map'
-  match 'data/people_with_location' => 'data#people_with_location'
-  match 'data/jobs_with_grades_with_steps_sunburst' => 'data#jobs_with_grades_with_steps_sunburst'
-  match 'data/jobs_with_grades_with_steps_bubbles' => 'data#jobs_with_grades_with_steps_bubbles'
-  match 'data/gender_pie' => 'data#gender_pie'
-  match 'data/race_pie' => 'data#race_pie'
-  match 'data/progress_aggregation_horizontal_bar' => 'data#progress_aggregation_horizontal_bar'
-  match 'records_to_clean/strange_country_city_combos' => 'records_to_clean#strange_country_city_combos'
-  match 'records_to_clean/gender/:id' => 'records_to_clean#gender', :as => 'records_to_clean_gender'
-  match 'records_to_clean/gender_sample' => 'records_to_clean#gender_sample'
-  match 'records_to_clean/fix_gender' => 'records_to_clean#fix_gender'
-  match 'records_to_clean/race/:id' => 'records_to_clean#race', :as => 'records_to_clean_race'
-  match 'records_to_clean/race_sample' => 'records_to_clean#race_sample'
-  match 'records_to_clean/fix_race' => 'records_to_clean#fix_race'
+  get 'reports/progress_aggregation' => 'reports#progress_aggregation'
+  get 'reports/sunburst' => 'reports#sunburst'
+  get 'reports/bubbles' => 'reports#bubbles'
+  get 'reports/genders' => 'reports#genders'
+  get 'reports/races' => 'reports#races'
+  get 'reports/map' => 'reports#map'
+  get 'data/people_with_location' => 'data#people_with_location'
+  get 'data/jobs_with_grades_with_steps_sunburst' => 'data#jobs_with_grades_with_steps_sunburst'
+  get 'data/jobs_with_grades_with_steps_bubbles' => 'data#jobs_with_grades_with_steps_bubbles'
+  get 'data/gender_pie' => 'data#gender_pie'
+  get 'data/race_pie' => 'data#race_pie'
+  get 'data/progress_aggregation_horizontal_bar' => 'data#progress_aggregation_horizontal_bar'
+  get 'records_to_clean/strange_country_city_combos' => 'records_to_clean#strange_country_city_combos'
+  get 'records_to_clean/gender/:id' => 'records_to_clean#gender', :as => 'records_to_clean_gender'
+  get 'records_to_clean/gender_sample' => 'records_to_clean#gender_sample'
+  get 'records_to_clean/fix_gender' => 'records_to_clean#fix_gender'
+  get 'records_to_clean/race/:id' => 'records_to_clean#race', :as => 'records_to_clean_race'
+  get 'records_to_clean/race_sample' => 'records_to_clean#race_sample'
+  get 'records_to_clean/fix_race' => 'records_to_clean#fix_race'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
