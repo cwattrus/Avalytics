@@ -79,61 +79,35 @@ class DataController < ApplicationController
   end
 
   def gender_pie
-    job_title = params[:job_title]
-    if job_title
-      female_count = Person.where(:female => true, :job_title => job_title).count
-      male_count = Person.where(:female => false, :job_title => job_title).count
-      unknown_count = Person.where(:female => nil, :job_title => job_title).count
-    else
-      female_count = Person.where(:female => true).count
-      male_count = Person.where(:female => false).count
-      unknown_count = Person.where(:female => nil).count
-    end
-    @genders = [
-      {
-        :key => "Genders",
-        :values => [
-          {
-            :label => "Unknown",
-            :value => unknown_count
-          },
-          {
-            :label => "Female",
-            :value => female_count
-          },
-          {
-            :label => "Male",
-            :value => male_count
-          }
-        ]
-      }
-    ]
-
-    render json: @genders
+    pie({"Female" => true, "Male" => false}, :female)
   end
 
   def race_pie
+    race_labels = {}
+    Person::RACES.each {|race| race_labels[race] = race}
+    pie race_labels, :race
+  end
+
+  private
+
+  def pie(label_to_value_pairs, attribute)
     job_title = params[:job_title]
 
-    values = Person::RACES.map do |race|
+    data = [
       {
-        :label => race,
-        :value => job_title ? Person.where(:job_title => job_title, :race => race).count : Person.where(:race => race).count
-      }
-    end
-
-    values = [{
-      :label => "Unknown",
-      :value => job_title ? Person.where(:job_title => job_title, :race => nil).count : Person.where(:race => nil).count
-    }] + values
-
-    @races = [
-      {
-        :key => "Races",
-        :values => values
+        :key => "Pie Data",
+        :values => [{
+          :label => "Unknown",
+          :value => job_title ? Person.where(:job_title => job_title, attribute => nil).count : Person.where(attribute => nil).count
+        }] + label_to_value_pairs.map do |label, value|
+          {
+            :label => label,
+            :value => job_title ? Person.where(:job_title => job_title, attribute => value).count : Person.where(attribute => value).count
+          }
+        end
       }
     ]
 
-    render json: @races
+    render json: data
   end
 end
