@@ -5,6 +5,7 @@ var update_horizontal_bar_chart = function(url, selector){
           .x(function(d) { return d.label })
           .y(function(d) { return d.value })
           .margin({top: 30, right: 20, bottom: 50, left: 175})
+          .height(600)
           .showValues(true)
           .tooltips(false)
           .showControls(false)
@@ -15,7 +16,7 @@ var update_horizontal_bar_chart = function(url, selector){
 
       d3.select(selector)
           .datum(data)
-        .transition().duration(500)
+          .transition().duration(1000)
           .call(chart);
 
       nv.utils.windowResize(chart.update);

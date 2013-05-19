@@ -1,7 +1,10 @@
-= render "pie_filters", job_lists: @job_lists
+.span12
+  %h1
+    Candidates by Gender
+  = render "pie_filters", job_lists: @job_lists
 
-#gender_chart
-  %svg
+  #gender_chart
+    %svg
 :javascript
   var base_url = '/data/gender_pie.json';
   var selector = "#gender_chart svg";

@@ -164,24 +164,6 @@ body {
 
 /* Data */
 
-#map-container {
-  padding: 6px;
-  -webkit-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
-  -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
-  box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
-  width: 1188px;
-  margin-top: 20px;
-}
-
-#map {
-  width: 100%;
-  height: 500px;
-}
-
-#map img {
-  max-width: none;
-}
-
 .icon-map-marker, .icon-user, .icon-share-alt {
   background-position: 14px;
 }

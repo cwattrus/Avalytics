@@ -4,7 +4,7 @@ function addMap(url, selector){
       dataType: "json",
       url: url,
       success: function(data){
-        var center = new google.maps.LatLng(-26.2041028, 28.0473051);
+        var center = new google.maps.LatLng(0, 0);
         var options = {
           'zoom': 2,
           'center': center,
