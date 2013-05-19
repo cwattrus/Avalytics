@@ -20,6 +20,7 @@ Avalytics::Application.routes.draw do
   match 'data/jobs_with_grades_with_steps_bubbles' => 'data#jobs_with_grades_with_steps_bubbles'
   match 'data/gender_pie' => 'data#gender_pie'
   match 'data/race_pie' => 'data#race_pie'
+  match 'data/progress_aggregation_horizontal_bar' => 'data#progress_aggregation_horizontal_bar'
   match 'records_to_clean/strange_country_city_combos' => 'records_to_clean#strange_country_city_combos'
   match 'records_to_clean/gender/:id' => 'records_to_clean#gender', :as => 'records_to_clean_gender'
   match 'records_to_clean/gender_sample' => 'records_to_clean#gender_sample'
