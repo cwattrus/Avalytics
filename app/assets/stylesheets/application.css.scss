@@ -58,7 +58,7 @@ body {
   -moz-box-shadow: rgba(64, 64, 64, 0.5) 0 2px 5px;
   box-shadow: rgba(64, 64, 64, 0.1) 0 2px 5px;
   padding: 10px;
-  width: 1180px; 
+  width: 1180px;
   margin-bottom: 20px;
 
   .tile img {
@@ -126,8 +126,6 @@ body {
 
 .btn {
   border: none;
-  color: white;
-  font-size: 16.5px;
   text-decoration: none;
   text-shadow: none;
   -webkit-box-shadow: none;
@@ -157,7 +155,7 @@ body {
   font-size: 11pt;
   border: 0px;
   box-shadow: none;
-  line-height: 55px;  
+  line-height: 55px;
 }
 
 .btn-toolbar .btn.active {
@@ -197,7 +195,7 @@ body {
   }
 }
 
-/* Typography
+/* Typography */
 
 h1, h2, h3, h4 {
   color: gray;
