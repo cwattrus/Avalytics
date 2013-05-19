@@ -59,21 +59,21 @@ ol.progress-tracker li.progress-tracker-done:before {
 ol.progress-tracker li.progress-tracker-todo:before {
     content: "\039F";
     color: silver;
-    background-color: white;
+    background-color: transparent;
     font-size: 1.5em;
     bottom: -1.6em;
 }
 ol.progress-tracker li.progress-tracker-hold:before {
     content: "ll";
     color: #EBB035;
-    background-color: white;
+    background-color: transparent;
     font-size: 1.5em;
     bottom: -1.6em;
 }
 ol.progress-tracker li.progress-tracker-rejected:before {
     content: "X";
     color: #DD1E2F;
-    background-color: white;
+    background-color: transparent;
     font-size: 1.5em;
     bottom: -1.6em;
 }
