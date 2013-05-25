@@ -9,11 +9,11 @@ class ReportsController < ApplicationController
   end
 
   def genders
-    @job_lists = JobList.all
+    @job_titles = JobList.distinct(:job_title)
   end
 
   def races
-    @job_lists = JobList.all
+    @job_titles = JobList.distinct(:job_title)
   end
 
   def map
