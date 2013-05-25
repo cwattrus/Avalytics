@@ -26,15 +26,17 @@ namespace :ingest do
       end
     end
     puts "#{Time.now} - Updated #{updated_count} people and created #{created_count} people"
-    people
+    people_to_delete = Person.where(:id.nin => people.map(&:id))
+    puts "#{Time.now} - Deleting #{people_to_delete.count} people because they are out of date"
+    people_to_delete.delete
   end
 
   task :locations => :environment do
     ids_to_leave_out = Person.bad_country_city_combos.distinct(:id)
-    count = Person.where(location: nil, :id.nin => ids_to_leave_out).count
-    puts "#{Time.now} - Getting location information for #{count} people"
-    count = 0
-    Person.where(location: nil, :id.nin => ids_to_leave_out).each do |person|
+    people = Person.where(location: nil, :id.nin => ids_to_leave_out)
+    puts "#{Time.now} - Getting location information for #{people.count} people"
+    successful_count = 0
+    people.each do |person|
       puts "#{Time.now} - Looking for location of #{person.first_name} #{person.last_name}"
       doc = Nokogiri::XML(open(person.location_url))
       if doc.xpath("//GeocodeResponse/status").text == "OK"
@@ -42,9 +44,9 @@ namespace :ingest do
         lng = doc.xpath("//GeocodeResponse/result/geometry/location/lng")[0].text.to_f
         person.location = [lat, lng]
         person.save
-        count += 1
+        successful_count += 1
       end
     end
-    puts "#{Time.now} - Got location information for #{count} people"
+    puts "#{Time.now} - Got location information for #{successful_count} people"
   end
 end
