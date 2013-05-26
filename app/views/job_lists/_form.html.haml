@@ -8,7 +8,7 @@
 
   .field
     = f.label :job_title
-    = f.text_field :job_title
+    = f.text_field :job_title, "data-provide" => "typeahead", "autocomplete" => "off", "data-source" => "#{@existing_job_titles}"
   .field
     = f.label :url
     = f.text_field :url

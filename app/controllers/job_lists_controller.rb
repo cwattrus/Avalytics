@@ -26,6 +26,7 @@ class JobListsController < ApplicationController
   # GET /job_lists/new.json
   def new
     @job_list = JobList.new
+    @existing_job_titles = JobList.distinct(:job_title)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,6 +37,7 @@ class JobListsController < ApplicationController
   # GET /job_lists/1/edit
   def edit
     @job_list = JobList.find(params[:id])
+    @existing_job_titles = JobList.distinct(:job_title)
   end
 
   # POST /job_lists
