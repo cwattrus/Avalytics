@@ -23,3 +23,4 @@
   %br
 
   = link_to 'New Job list', new_job_list_path, :class => "btn"
+  = link_to "Refresh People Data", job_lists_refresh_people_data_path, :class => "btn", data: { confirm: 'This operation should only be done when necessary.  It is an intensive process that should not be taken lightly.' }

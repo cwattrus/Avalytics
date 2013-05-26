@@ -41,6 +41,25 @@ class Person
   scope :by_source, -> source { self.in(source: source) }
   scope :by_job_title, -> job_title { self.in(job_title: job_title) }
 
+  def self.update_locations
+    ids_to_leave_out = Person.bad_country_city_combos.distinct(:id)
+    people = Person.where(location: nil, :id.nin => ids_to_leave_out)
+    puts "#{Time.now} - Getting location information for #{people.count} people"
+    successful_count = 0
+    people.each do |person|
+      puts "#{Time.now} - Looking for location of #{person.first_name} #{person.last_name}"
+      doc = Nokogiri::XML(open(person.location_url))
+      if doc.xpath("//GeocodeResponse/status").text == "OK"
+        lat = doc.xpath("//GeocodeResponse/result/geometry/location/lat")[0].text.to_f
+        lng = doc.xpath("//GeocodeResponse/result/geometry/location/lng")[0].text.to_f
+        person.location = [lat, lng]
+        person.save
+        successful_count += 1
+      end
+    end
+    puts "#{Time.now} - Got location information for #{successful_count} people"
+  end
+
   def gender
     if self.female == true
       "Female"

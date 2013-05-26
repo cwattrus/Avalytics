@@ -1,5 +1,11 @@
 class JobListsController < ApplicationController
   before_filter :authenticate_user!
+  def refresh_people_data
+    JobList.update_people
+    Person.update_locations
+    redirect_to job_lists_path, notice: 'The data is now up-to-date.'
+  end
+
   # GET /job_lists
   # GET /job_lists.json
   def index

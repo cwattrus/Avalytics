@@ -5,6 +5,7 @@ Avalytics::Application.routes.draw do
       put 'users' => 'devise/registrations#update', :as => 'user_registration'
     end
 
+  get 'job_lists/refresh_people_data' => "job_lists#refresh_people_data"
   resources :job_lists
   resources :people, :only => [:index, :show]
 
@@ -27,6 +28,7 @@ Avalytics::Application.routes.draw do
   get 'records_to_clean/race/:id' => 'records_to_clean#race', :as => 'records_to_clean_race'
   get 'records_to_clean/race_sample' => 'records_to_clean#race_sample'
   get 'records_to_clean/fix_race' => 'records_to_clean#fix_race'
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

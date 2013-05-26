@@ -25,6 +25,36 @@ class JobList
   field :job_title, type: String
   field :url, type: String
 
+  def self.update_people
+    people = []
+    updated_count = 0
+    created_count = 0
+    JobList.all.each do |job_list|
+      puts "#{Time.now} - Ingesting #{job_list.job_title} from #{job_list.url}"
+      scraped = job_list.scrape_people
+      puts "#{Time.now} - Found #{scraped.size} people in job"
+      scraped.each do |key, value|
+        Mongoid.raise_not_found_error = false
+        person = Person.find_by(:avature_id => key.to_i)
+        if person then
+          updated_count += 1
+          person.update_attributes(value)
+        else
+          created_count += 1
+          value[:avature_id] = key
+          person = Person.new(value)
+        end
+        person.setup_past_states
+        person.save()
+        people << person
+      end
+    end
+    puts "#{Time.now} - Updated #{updated_count} people and created #{created_count} people"
+    people_to_delete = Person.where(:id.nin => people.map(&:id))
+    puts "#{Time.now} - Deleting #{people_to_delete.count} people because they are out of date"
+    people_to_delete.delete
+  end
+
   def scrape_people
     doc = Nokogiri::HTML(open(self.url))
     rows = doc.search("table tr")
