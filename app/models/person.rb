@@ -25,6 +25,7 @@ class Person
   field :attached_files_and_forms, type: String
   field :source, type: String
   field :job_title, type: String
+  field :recruiting_region, type: String
   field :female, type: Boolean
   field :race, type: String
   field :location, type: Array

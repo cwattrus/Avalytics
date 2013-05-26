@@ -21,6 +21,7 @@ class JobList
 
   include Mongoid::Document
 
+  field :recruiting_region, type: String
   field :job_title, type: String
   field :url, type: String
 
@@ -45,7 +46,8 @@ class JobList
           :recruiter => clear_nbsp(persons_values[11].content).strip,
           :attached_files_and_forms => clear_nbsp(persons_values[12].content).strip,
           :source => clear_nbsp(persons_values[13].content).strip,
-          :job_title => clear_nbsp(self.job_title).strip
+          :job_title => clear_nbsp(self.job_title).strip,
+          :recruiting_region => clear_nbsp(self.recruiting_region).strip
         }
       end
       people

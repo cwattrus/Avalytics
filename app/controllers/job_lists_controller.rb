@@ -27,6 +27,7 @@ class JobListsController < ApplicationController
   def new
     @job_list = JobList.new
     @existing_job_titles = JobList.distinct(:job_title)
+    @existing_recruiting_regions = JobList.distinct(:recruiting_region)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -38,6 +39,7 @@ class JobListsController < ApplicationController
   def edit
     @job_list = JobList.find(params[:id])
     @existing_job_titles = JobList.distinct(:job_title)
+    @existing_recruiting_regions = JobList.distinct(:recruiting_region)
   end
 
   # POST /job_lists

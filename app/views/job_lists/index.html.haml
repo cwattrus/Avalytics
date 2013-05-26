@@ -4,6 +4,7 @@
   %table.table.table-striped.table-bordered.table-hover.table-condensed
     %thead
       %tr
+        %th Recruiting Region
         %th Job title
         %th Url
         %th
@@ -12,6 +13,7 @@
 
     - @job_lists.each do |job_list|
       %tr
+        %td= job_list.recruiting_region
         %td= job_list.job_title
         %td= job_list.url
         %td= link_to 'Show', job_list

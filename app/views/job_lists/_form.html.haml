@@ -7,6 +7,9 @@
           %li= msg
 
   .field
+    = f.label :recruiting_region
+    = f.text_field :recruiting_region, "data-provide" => "typeahead", "autocomplete" => "off", "data-source" => "#{@existing_recruiting_regions}"
+  .field
     = f.label :job_title
     = f.text_field :job_title, "data-provide" => "typeahead", "autocomplete" => "off", "data-source" => "#{@existing_job_titles}"
   .field
